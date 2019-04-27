@@ -31,6 +31,7 @@ body {
     background-color: #eaeaea;
     margin: 0;
     color: #34495e;
+    
 }
 
 h1 {
@@ -163,7 +164,7 @@ mark {
 }
 
 .bg-color {
-    background-image: linear-gradient(to right, #4cbf30 0%, #0f9d58 100%);
+    background-image: linear-gradient(to right, #a800ff 0%, #4cbf30 100%);
 }
 
 .text-color {
@@ -1674,7 +1675,7 @@ footer .copy-right {
 }
 
 .top-scroll .btn-floating {
-    background: linear-gradient(to bottom right, #FF5E3A 0%, #FF2A68 100%);
+    background: linear-gradient(to bottom right, #FF5E3A 0%, #bdd805 100%);
     width: 48px;
     height: 48px;
 }

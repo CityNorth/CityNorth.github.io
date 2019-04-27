@@ -35,7 +35,7 @@ dream:
   enable: true
   showTitle: true
   title: 城北以北
-  text: 此后又过了许多许多年，我才渐渐有些理解：有的人、事之所以无法忘怀，并不是因为它本身有多么美好而让你难忘，而是因为你在对它印象最生动深刻、最离不得它的时候，由于别的某些你无法控制的力量强迫你永远地失去了它。这种心情不是难过，不是怨恨，而是舍不得和不甘心。
+  text: 一个人去过多少地方 见过多少人 <br/> 决定了他的思维的宽度和内心的包容程度 <br/> &nbsp; <br/> 如果你去过西藏 你就会对生死有不同的想法 <br/> 如果你从欧洲游历一圈儿 你不会以为失去一个恋人就失去了整个宇宙 <br/> 如果你在美国住上一段时间 你就不再有狭隘的反美情绪或者狂热的西方崇拜<br/> &nbsp; <br/> 懂得葡萄酒的产地和身份 看得出普洱的好坏和年份 <br/> 说得出莫奈和梵高的区别 了解各国同性恋和安乐死的法案 <br/> 不是为了在和别人聊天的时候装逼 而是在任何时候 你都不会过于大惊小怪 <br/> <br/> 泡夜店 纹身 打耳洞 买醉看似很酷 <br/> 其实这些事一点难度也没有 <br/> 只要你愿意去做就能做到 <br/> <br/> 更酷的应该是那些不容易做到的事 <br/> 比如看书 健身 赚钱 用心去爱一个人
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
@@ -113,7 +113,7 @@ code:
 # 是否激活文章末尾的打赏功能，默认激活（你替换为的你自己的微信、支付宝二维码图片、或者使用网络图片也可以）.
 reward:
   enable: true
-  title: 你的赏识是我前进的动力
+  title: 您的赏识是我前进的动力
   wechat: /medias/reward/wechat.png
   alipay: /medias/reward/alipay.jpg
 
@@ -154,8 +154,8 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: 城北以北
-  introduction: 城北之北，是无尽的伤悲;城南之南，是遗失的诺言。
+  career: 数据分析师
+  introduction: 收集数据，把数据融入到易懂的形式中，让数据讲故事，并且把故事讲给别人听。
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
@@ -183,7 +183,7 @@ myProjects:
 # If you don't want to display this `My Skills` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的技能"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 mySkills:
-  enable: true
+  enable: false
   data:
     Java:
       background: 'linear-gradient(to right, #FF0066 0%, #FF00CC 100%)'
@@ -221,7 +221,7 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: true
+  enable: false
   owner:
   repo:
   oauth:
@@ -232,7 +232,7 @@ gitalk:
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
 gitment:
-  enable: true
+  enable: false
   owner:
   repo:
   oauth:
@@ -242,13 +242,13 @@ gitment:
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活
 disqus:
-  enable: true
+  enable: false
   shortname:
 
 # Livere comment configuration, the default is not activated
 # Livere 来必力评论模块的配置，默认为不激活
 livere:
-  enable: true
+  enable: false
   uid:
 
 # The configuration of the Valine comment module is not activated by default.
@@ -260,7 +260,7 @@ valine:
   appKey:
   notify: false
   verify: false
-  visitor: true
+  visitor: false
   avatar: 'mm' # Gravatar style : mm/identicon/monsterid/wavatar/retro/hide
   pageSize: 10
   placeholder: 'just go go' # Comment Box placeholder
