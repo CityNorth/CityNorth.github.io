@@ -1,22 +1,22 @@
 # main menu navigation url and icon
 # 配置菜单导航的名称、路径和图标icon.
 menu:
-  Index:
+  首页:
     url: /
     icon: fa-home
-  Tags:
+  标签:
     url: /tags
     icon: fa-tags
-  Categories:
+  分类:
     url: /categories
     icon: fa-bookmark
-  Archives:
+  归档:
     url: /archives
     icon: fa-archive
-  About:
+  关于:
     url: /about
     icon: fa-user-circle-o
-  Friends:
+  友情链接:
     url: /friends
     icon: fa-address-book
 
@@ -34,13 +34,13 @@ cover:
 dream:
   enable: true
   showTitle: true
-  title: 我的梦想
-  text: 不是每个人都应该像我这样去建造一座水晶大教堂，但是每个人都应该拥有自己的梦想，设计自己的梦想，追求自己的梦想，实现自己的梦想。梦想是生命的灵魂，是心灵的灯塔，是引导人走向成功的信仰。有了崇高的梦想，只要矢志不渝地追求，梦想就会成为现实，奋斗就会变成壮举，生命就会创造奇迹。——罗伯·舒乐
+  title: 城北以北
+  text: 此后又过了许多许多年，我才渐渐有些理解：有的人、事之所以无法忘怀，并不是因为它本身有多么美好而让你难忘，而是因为你在对它印象最生动深刻、最离不得它的时候，由于别的某些你无法控制的力量强迫你永远地失去了它。这种心情不是难过，不是怨恨，而是舍不得和不甘心。
 
 # Whether to display the musics.
 # 是否在首页显示音乐.
 music:
-  enable: false
+  enable: true
   showTitle: true
   title: 听听音乐
   fixed: false # 开启吸底模式
@@ -83,10 +83,10 @@ logo: /medias/logo.png
 # including the display name of the button, the font awesome icon, and the hyperlink to the button.
 # 首页 banner 中的第二个按钮的配置，包括按钮的显示名称、font awesome图标和按钮的超链接.
 indexbtn:
-  enable: true
-  name: Github
+  enable: false
+  name: 城北
   icon: fa-github-alt
-  url: https://github.com/blinkfox/hexo-theme-matery
+  url: #
 
 # The configurations of the second line of home banner
 # icon/button will not show up if you leave the corresponding socialLink empty
@@ -101,7 +101,7 @@ socialLink:
 # 是否激活文章 TOC 功能，并配置TOC支持选中哪些标题类型，这是全局配置。
 # 可以在某篇文章的 Front-matter 中再加上`toc: false`，使该篇文章关闭TOC目录功能
 toc:
-  enable: true
+  enable: false
   heading: h2, h3, h4
   showToggleBtn: true # 是否显示切换TOC目录展开收缩的按钮
 
@@ -140,7 +140,7 @@ mathjax:
 # 文章字数统计、阅读时长、总字数统计
 # 激活前请确认你已经安装了 hexo-wordcount 插件，安装命令: `npm i --save hexo-wordcount`
 wordCount:
-  enable: false
+  enable: true
   postWordCount: true
   min2read: true
   totalCount: true
@@ -154,14 +154,14 @@ clicklove:
 # 在”关于”页面中配置个人信息，包括头像、职业和个人介绍.
 profile:
   avatar: /medias/avatar.jpg
-  career: Software Engineer
-  introduction: If you wish to succeed, you should use persistence as your good friend, experience as your reference, prudence as your brother and hope as your sentry.
+  career: 城北以北
+  introduction: 城北之北，是无尽的伤悲;城南之南，是遗失的诺言。
 
 # config my projects informations in about page.
 # If you don't want to display this `My Projects` content, you can deactivate or delete this configuration.
 # 在“关于”页面配置"我的项目"信息，如果你不需要这些信息则可以将其设置为不激活或者将其删除.
 myProjects:
-  enable: true
+  enable: false
   data:
     hexo-theme-matery:
       icon: fa-meetup
@@ -221,7 +221,7 @@ postCalendar: true
 # the Gitalk config，default disabled
 # Gitalk 评论模块的配置，默认为不激活
 gitalk:
-  enable: false
+  enable: true
   owner:
   repo:
   oauth:
@@ -232,7 +232,7 @@ gitalk:
 # the Gitment config，default disabled
 # Gitment 评论模块的配置，默认为不激活
 gitment:
-  enable: false
+  enable: true
   owner:
   repo:
   oauth:
@@ -242,13 +242,13 @@ gitment:
 # disqus config, default disabled
 # Disqus评论模块的配置，默认为不激活
 disqus:
-  enable: false
+  enable: true
   shortname:
 
 # Livere comment configuration, the default is not activated
 # Livere 来必力评论模块的配置，默认为不激活
 livere:
-  enable: false
+  enable: true
   uid:
 
 # The configuration of the Valine comment module is not activated by default.
@@ -269,8 +269,8 @@ valine:
 # 配置是否在 header 中显示 fork me on github 的图标，默认为true，你可以修改为你的仓库地址.
 githubLink:
   enable: true
-  url: https://github.com/blinkfox/hexo-theme-matery
-  title: Fork Me
+  url: https://github.com/CityNorth/CityNorth.github.io
+  title: 城北
 
 # The password verification feature of read post. To use this feature,
 # activate the configuration item and write the 'password' key and Cipher in the post's Front-matter.

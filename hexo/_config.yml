@@ -4,8 +4,8 @@
 
 # Site
 title: 城北
-subtitle:
-description:
+subtitle: 城北
+description: 成长是一场兵荒马乱的孤单，孤单似烟花焚城，盛大却寂静无声
 keywords:
 author: CityNorth
 language:
@@ -78,13 +78,18 @@ theme: hexo-theme-matery
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type : git
-  repo : git@github.com:CityNorth/CityNorth.github.io.git
-  branch : master
+  type: git
+  repo: git@github.com:CityNorth/CityNorth.github.io.git
+  branch: master
 
 #search
 search:
   path: search.xml
   field: post
+
+#pinyin
+permalink_pinyin:
+  enable: true
+  separator: '-' # default: '-'
 
 
