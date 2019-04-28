@@ -54,7 +54,7 @@ $(function() {
                     });
                     $('#yinghua:last-child').animate({
                             left: -15 + '%',
-                            top: 130 + '%',
+                            top: 200 + '%',
                             deg: -540
                         },
                         {
