@@ -39,7 +39,7 @@ body {
     margin-top:-5%;
     opacity: 0.7;
     position: absolute;
-    z-index: 999;
+    z-index: 9999;
     -webkit-transform:rotate3d(.6,1,.6,45deg);
     -moz-transform:rotate3d(.6,1,.6,45deg);
     -ms-transform:rotate3d(.6,1,.6,45deg);
