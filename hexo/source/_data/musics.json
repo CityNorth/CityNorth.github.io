@@ -1,26 +1,26 @@
-[{
-	"name": "Bay Bay Beautiful",
-	"artist": "Nightwish",
-	"url": "http://dl.stream.qqmusic.qq.com/M5000030qt8g2OLrL6.mp3?vkey=C4459F8AB4918314BF87382AF902F7D293B0FAC0F58D1372B999ECD20E472152B6FFF9E6FB6334F756921210A4A0E5785FB1CBFA7A956923&guid=5150825362&fromtag=1",
-	"cover": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002KCT6c3Mqn9H.jpg?max_age=2592000"
-}, {
-	"name": "北京北京",
-	"artist": "汪峰",
-	"url": "http://dl.stream.qqmusic.qq.com/M500001fkWNw2eaEYT.mp3?vkey=2AD631E6EBC8C453003B3B2F031F2318C7D7D36D7E3AEA7FE444AAE7BD64AB87A0B3F4D89A7D9D15E29CCA4672EA156AC1C5CBDDC7C97003&guid=5150825362&fromtag=1",
-	"cover": "https://y.gtimg.cn/music/photo_new/T002R300x300M000004CFwog26ax08.jpg?max_age=2592000"
+[ {
+	"name": "城南花已开",
+	"artist": "三亩地",
+	"url": "http://dl.stream.qqmusic.qq.com/M5000016hfoy28wyTn.mp3?vkey=2972C6485F45B07F1480E560E363D7565574C479235202061ECD81A034B13200978C5A40D53D62CE3645EB4BB416855BEFF8E9D1A969665E&guid=5150825362&fromtag=1",
+	"cover": "http://p1.music.126.net/i-7ktILRPImJ0NwiH8DABg==/109951162885959979.jpg?param=130y130"
 }, {
 	"name": "故梦",
 	"artist": "双笙",
-	"url": "http://m10.music.126.net/20190427205852/ca45978eb97bd599ce68d307143d3a6f/ymusic/523a/8a22/6080/db0fa987f225dc5221cc0dc2fa168a47.mp3",
+	"url": "http://fs.open.kugou.com/96c6065fbe91d6fefe3a8a550ca62668/5cc7aa39/G081/M08/0A/09/8YYBAFhvfiSAMX7cAEVgLJlI_WY012.mp3",
 	"cover": "http://y.gtimg.cn/music/photo_new/T002R300x300M0000001PKnh1mSc3e.jpg?max_age=2592000"
 },{
-	"name": "姬和不如",
-	"artist": "隔壁老樊",
-	"url": "http://m10.music.126.net/20190427210149/97806788256253b630b28d03741ff355/ymusic/4536/0ff9/af37/220641d1396a343ff9be122f138e0027.mp3",
-	"cover": "https://gss1.bdstatic.com/-vo3dSag_xI4khGkpoWK1HF6hhy/baike/w%3D268%3Bg%3D0/sign=153e8334b4a1cd1105b675268129afc1/8644ebf81a4c510f341b851e6e59252dd52aa5d3.jpg"
+	"name": "浮白",
+	"artist": "花粥",
+	"url": "https://github.com/CityNorth/material/blob/master/music/%E6%B5%AE%E7%99%BD%20-%20%E8%8A%B1%E7%B2%A5%2C%E7%8E%8B%E8%83%9C%E7%94%B7.mp3",
+	"cover": "http://p2.music.126.net/dy4SZtCPKqnXh5qI61S3Nw==/109951163825880020.jpg?param=130y130"
+},{
+	"name": "Bay Bay Beautiful",
+	"artist": "Nightwish",
+	"url": "http://dl.stream.qqmusic.qq.com/M5000030qt8g2OLrL6.mp3?vkey=FF4B7E354BB7C34B874F67A61E7F0045A03D7322AD3767CBC7871DE7439FA6E7440B5F7A411ACDC60DDA9B1E7257423C93A2C2294F342322&guid=5150825362&fromtag=1",
+	"cover": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002KCT6c3Mqn9H.jpg?max_age=2592000"
 },{
 	"name": "Shape of You",
 	"artist": "Ed Sheeran",
-	"url": "http://dl.stream.qqmusic.qq.com/M5000041gObR2QG98x.mp3?vkey=3765246F331C165342ACF98DC9375EDE605B0EF6209EA34C018F741F3D1EE0BF3F7CFD93C82A9F5D34DB4C07214CE535222343FD4358B49F&guid=5150825362&fromtag=1",
+	"url": "http://fs.open.kugou.com/dfc8c70059ccc65d89d2c8f12e07dd12/5cc7aad1/G081/M03/0A/19/kQ0DAFhwQ6yAATGMADkTkHPxRdg627.mp3",
 	"cover": "http://y.gtimg.cn/music/photo_new/T002R300x300M000000chBQY44HBam.jpg?max_age=2592000"
 }]
