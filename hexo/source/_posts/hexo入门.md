@@ -4,6 +4,7 @@ date: 2019-04-28 21:40:30
 tags: "hexo"
 cover: true
 summary: 梳理搭建流程，细数自己踩过的坑，如果能帮到你，最好不过了。
+categories: "其他"
 ---
 
 ## 说在前面
