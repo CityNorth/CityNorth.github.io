@@ -4,24 +4,7 @@
 
 <body>
 <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<!-- 樱花 -->
-<script src="/js/yinghua.js"></script>	
-<div class="cherry">
-<img id="yinghua" src="https://raw.githubusercontent.com/CityNorth/material/master/image/yinghua.jpg" alt="" >
-</div> 
 
-<script>
-    $(function(){
-        $('.cherry').Cherry_Blossoms({
-            is_Cherry:true,//是否生成樱花
-            image_min:10,//花瓣最小宽度和高度
-            image_max:45,//花瓣最大宽度和高度
-            time_min:1000,//花瓣最快下坠时间
-            time_max:30000,//花瓣最慢下坠时间
-            interval:300,//花瓣生成时间间隔
-        })
-    })
-</script>
 
 <%- partial('_partial/header') %>
 <%- body %>
