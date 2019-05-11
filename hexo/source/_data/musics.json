@@ -1,26 +1,11 @@
 [ {
 	"name": "城南花已开",
 	"artist": "三亩地",
-	"url": "http://dl.stream.qqmusic.qq.com/M5000016hfoy28wyTn.mp3?vkey=2972C6485F45B07F1480E560E363D7565574C479235202061ECD81A034B13200978C5A40D53D62CE3645EB4BB416855BEFF8E9D1A969665E&guid=5150825362&fromtag=1",
+	"url": "http://dl.stream.qqmusic.qq.com/M5000016hfoy28wyTn.mp3?vkey=76CE2A5567A0336BE3B3756EAB18A1329C67A910CB98E5957A9A499AB7D17A5258C00B991E53C0D7FAEFDF76DC69B89364FD573C4DC7FB01&guid=5150825362&fromtag=1",
 	"cover": "http://p1.music.126.net/i-7ktILRPImJ0NwiH8DABg==/109951162885959979.jpg?param=130y130"
 }, {
 	"name": "故梦",
 	"artist": "双笙",
-	"url": "http://fs.open.kugou.com/96c6065fbe91d6fefe3a8a550ca62668/5cc7aa39/G081/M08/0A/09/8YYBAFhvfiSAMX7cAEVgLJlI_WY012.mp3",
+	"url": "http://dl.stream.qqmusic.qq.com/M500003PqPqt2VKoA2.mp3?vkey=8042E32FB54843D4D6AE3ADB49E9087C148F1F776041E00FC953AF2EBBE61E1C063209C13BE85295E2DB15F4BA1DBE35CA4D6A4D0972E680&guid=5150825362&fromtag=1",
 	"cover": "http://y.gtimg.cn/music/photo_new/T002R300x300M0000001PKnh1mSc3e.jpg?max_age=2592000"
-},{
-	"name": "浮白",
-	"artist": "花粥",
-	"url": "https://github.com/CityNorth/material/blob/master/music/%E6%B5%AE%E7%99%BD%20-%20%E8%8A%B1%E7%B2%A5%2C%E7%8E%8B%E8%83%9C%E7%94%B7.mp3",
-	"cover": "http://p2.music.126.net/dy4SZtCPKqnXh5qI61S3Nw==/109951163825880020.jpg?param=130y130"
-},{
-	"name": "Bay Bay Beautiful",
-	"artist": "Nightwish",
-	"url": "http://dl.stream.qqmusic.qq.com/M5000030qt8g2OLrL6.mp3?vkey=FF4B7E354BB7C34B874F67A61E7F0045A03D7322AD3767CBC7871DE7439FA6E7440B5F7A411ACDC60DDA9B1E7257423C93A2C2294F342322&guid=5150825362&fromtag=1",
-	"cover": "https://y.gtimg.cn/music/photo_new/T001R300x300M000002KCT6c3Mqn9H.jpg?max_age=2592000"
-},{
-	"name": "Shape of You",
-	"artist": "Ed Sheeran",
-	"url": "http://fs.open.kugou.com/dfc8c70059ccc65d89d2c8f12e07dd12/5cc7aad1/G081/M03/0A/19/kQ0DAFhwQ6yAATGMADkTkHPxRdg627.mp3",
-	"cover": "http://y.gtimg.cn/music/photo_new/T002R300x300M000000chBQY44HBam.jpg?max_age=2592000"
 }]
