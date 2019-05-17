@@ -81,7 +81,7 @@ deploy:
   type: git
   repo: 
     github: git@github.com:citynorth/citynorth.github.io.git
-    coding: git@git.dev.tencent.com:dtid_89e347db8ee043f0/CityNorh.git 
+    coding: git@git.dev.tencent.com:CityNorth/CityNorth.git
   branch: master
 
 #search
