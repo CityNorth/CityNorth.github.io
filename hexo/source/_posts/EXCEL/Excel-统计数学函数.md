@@ -5,6 +5,7 @@ date: 2019-05-1 03:20:05
 tags: "Excel"
 summary: EXCEL-统计数学函数
 categories: "Excel"
+img: https://raw.githubusercontent.com/CityNorth/material/master/image/excel.png
 ---
 ## EXCEL-统计数学函数
 

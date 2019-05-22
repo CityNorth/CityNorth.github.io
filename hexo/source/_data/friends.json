@@ -1,7 +1,37 @@
 ﻿[{
+    "avatar": "https://qn11.tool.lu/201710/15/103320SbM84Ql4tETjg49a_28x28.png",
+    "name": "在线工具",
+    "introduction": "在线工具，你值得拥有",
+    "url": "https://tool.lu/",
+    "title": "前去使用"
+},{
+    "avatar": "https://cdn.leakzero.com/mijisou/themes/entropage/img/logo_search_page.png?staticVersion=1554281019",
+    "name": "秘籍搜索",
+    "introduction": "这是一个不追踪的搜索引擎",
+    "url": "https://mijisou.com/",
+    "title": "前去使用"
+},{
+    "avatar": "https://www.pythontab.com/statics/images/common/logo.png",
+    "name": "在线手册中心",
+    "introduction": "在线学习手册",
+    "url": "https://docs.pythontab.com/",
+    "title": "前去查询"
+},{
+    "avatar": "http://www.sonimei.cn/film/template/xiufuxin/Images/logo.png",
+    "name": "全网音乐",
+    "introduction": "全网音乐免费下载",
+    "url": "http://music.sonimei.cn/",
+    "title": "前去查询"
+},{
+    "avatar": "https://www3.jiumodiary.com/images/front/eleps.png",
+    "name": "鸠摩搜书",
+    "introduction": "书籍搜索网站",
+    "url": "https://www.jiumodiary.com/",
+    "title": "前去搜索"
+},{
     "avatar": "http://image.luokangyuan.com/4027734.jpeg",
     "name": "闪烁之狐",
-    "introduction": "编程界大佬，技术牛，人还特别好，不懂的都可以请教大佬",
+    "introduction": "大佬",
     "url": "https://blinkfox.github.io/",
     "title": "前去学习"
 }]

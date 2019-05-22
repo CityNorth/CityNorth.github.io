@@ -3,8 +3,8 @@ title: R语言常包
 date: 2019-04-29 13:33:37
 top: true
 author: 城北
-cover: true
-img: #
+cover: 
+img: https://raw.githubusercontent.com/CityNorth/material/master/image/20190522145737.jpg
 categories: R语言
 tags: R
 summary: 一些R语言常用到的包，查漏补缺，经常更新。有什么不懂的，欢迎来问

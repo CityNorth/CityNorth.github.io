@@ -3,7 +3,8 @@ title: EXCEL-逻辑函数
 date: 2019-04-30 12:32:45
 tags: "Excel"
 cover: true
-summary: 一些excel中经常用到的函数，希望对你有所帮助，经常更新。有什么错误，希望您及时指出。互相学习。
+img: https://raw.githubusercontent.com/CityNorth/material/master/image/excel.png
+summary: 一些excel中经常用到的函数，希望对你有所帮助，经常更新。互相学习。
 categories: "Excel"
 ---
 ## EXCEL-逻辑函数
