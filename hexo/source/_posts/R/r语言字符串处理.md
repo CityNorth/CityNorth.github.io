@@ -1,6 +1,7 @@
 ---
 title: R语言字符串处理
 date: 2019-05-18 20:05:54
+img: https://raw.githubusercontent.com/CityNorth/material/master/image/zifuchuanchuli.png
 tags: "R"
 summary: 字符串处理
 categories: "R"

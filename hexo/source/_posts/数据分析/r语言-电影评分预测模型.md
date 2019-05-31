@@ -1,6 +1,8 @@
 ---
 title: R语言-电影评分预测模型
 date: 2019-05-19 21:29:01
+img: https://raw.githubusercontent.com/CityNorth/material/master/image/movie-model.jpg
+top: true
 tags: 
 	- "数据分析"
 	- "R"

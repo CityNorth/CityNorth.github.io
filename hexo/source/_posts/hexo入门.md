@@ -2,7 +2,7 @@
 title: hexo入门
 date: 2019-04-28 21:40:30
 tags: "hexo"
-cover: true
+cover: 
 img: https://raw.githubusercontent.com/CityNorth/material/master/image/hexo1.png
 summary: 梳理搭建流程，细数自己踩过的坑，如果能帮到你，最好不过了。
 categories: "其他"
