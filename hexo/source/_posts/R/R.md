@@ -4,7 +4,7 @@ date: 2019-04-29 13:33:37
 author: 城北
 cover: 
 img: https://raw.githubusercontent.com/CityNorth/material/master/image/20190522145737.jpg
-categories: R语言
+categories: R
 tags: R
 summary:  R语言常包
 ---
