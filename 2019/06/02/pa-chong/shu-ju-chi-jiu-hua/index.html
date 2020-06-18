@@ -1,0 +1,1250 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="数据文件储存, 城北">
+    <meta name="description" content="数据文件储存数据文件存储形式可以是多种多样的，比如可以保存成 TXT 纯文本形式，也可以保存为 Json 格式、CSV 格式等，本节我们来了解下文本文件的存储方式。
+TXT文本存储将数据保存到 TXT 文本的操作非常简单，而且 TXT 文本">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>数据文件储存 | 城北</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.gif" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">城北</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">城北</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/CityNorth" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>城北
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CityNorth" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="城北" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/CityNorth/material/master/image/data_storage.png')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        数据文件储存
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/爬虫/" target="_blank">
+                                <span class="chip bg-color">爬虫</span>
+                            </a>
+                        
+                            <a href="/tags/Python/" target="_blank">
+                                <span class="chip bg-color">Python</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/爬虫/" class="post-category" target="_blank">
+                                爬虫
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-06-02
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        4.9k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        20 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="数据文件储存"><a href="#数据文件储存" class="headerlink" title="数据文件储存"></a>数据文件储存</h2><p>数据文件存储形式可以是多种多样的，比如可以保存成 TXT 纯文本形式，也可以保存为 Json 格式、CSV 格式等，本节我们来了解下文本文件的存储方式。</p>
+<h3 id="TXT文本存储"><a href="#TXT文本存储" class="headerlink" title="TXT文本存储"></a>TXT文本存储</h3><p>将数据保存到 TXT 文本的操作非常简单，而且 TXT 文本几乎兼容任何平台，但是有个缺点就是不利于检索，所以如果对检索和数据结构要求不高，追求方便第一的话，可以采用 TXT 文本存储，本节我们来看下利用 Python 保存 TXT 文本文件的方法。  </p>
+<ol>
+<li><p>本节目标</p>
+<p> 本节我们要保存知乎发现页面的热门问题部分，将其问题和答案统一保存成文本形式。</p>
+</li>
+<li><p>基本实例</p>
+<p> 首先可以用 Requests 将网页源代码获取下来，然后使用 PyQuery 解析库进行解析，接下来将提取的标题、回答者、回答保存到文本，代码如下：</p>
+<pre><code> import requests        
+ from pyquery import PyQuery as pq         
+ url = &#39;https://www.zhihu.com/explore&#39;        
+ headers = {        
+     &#39;User-Agent&#39;: &#39;Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36&#39;    
+ }
+ html = requests.get(url, headers=headers).text
+ doc = pq(html)
+ items = doc(&#39;.explore-tab .feed-item&#39;).items()
+ for item in items:
+     question = item.find(&#39;h2&#39;).text()
+     author = item.find(&#39;.author-link-line&#39;).text()
+     answer = pq(item.find(&#39;.content&#39;).html()).text()
+     file = open(&#39;explore.txt&#39;, &#39;a&#39;, encoding=&#39;utf-8&#39;)
+     file.write(&#39;\n&#39;.join([question, author, answer]))
+     file.write(&#39;\n&#39; + &#39;=&#39; * 50 + &#39;\n&#39;)
+     file.close()
+</code></pre><p> 在这里主要是为了演示文件保存的方式，因此 Requests 异常处理部分在此省去，我们首先用 Requests 提取了知乎发现页面，然后将热门问题的问题、回答者、答案全文提取出来，然后利用了Python提供的 open() 方法打开一个文本文件，获取一个文件操作对象，这里赋值为 file，然后利用 file 对象的 write() 方法将提取的内容写入文件，最后记得调用一下 close() 方法将其关闭，这样抓取的内容即可成功写入到文本中了。  </p>
+<p> 运行程序，可以发现在本地生成了一个 explore.txt 文件，这样热门问答的内容就被保存文文本形式了。</p>
+<p> 在这里 open() 方法的第一个参数即为要保存的目标文件名称，第二个参数为 a，代表以追加方式写入到文本，另外我们还指定了文件的编码为utf-8，最后写入完成之后，我们还需要调用 close() 方法来关闭文件对象。</p>
+</li>
+<li><p>打开方式</p>
+<p> 在刚才的实例中，第二个参数我们设置成了 a，这样在每次写入文本时不会清空源文件，而是在文件末尾写入新的内容，这是一种文件打开方式。关于文件打开方式，其实还有另外的几种，在此列举如下：</p>
+<blockquote>
+<p>r　　以只读方式打开文件。文件的指针将会放在文件的开头。这是默认模式。<br>rb　 以二进制格式打开一个文件用于只读。文件指针将会放在文件的开头。这是默认模式。<br>r+　 打开一个文件用于读写。文件指针将会放在文件的开头。<br>rb+　以二进制格式打开一个文件用于读写。文件指针将会放在文件的开头。<br>w　　打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。<br>wb　 以二进制格式打开一个文件只用于写入。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。<br>w+　 打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。<br>wb+　以二进制格式打开一个文件用于读写。如果该文件已存在则将其覆盖。如果该文件不存在，创建新文件。<br>a　　打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。<br>ab 　以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。也就是说，新的内容将会被写入到已有内容之后。如果该文件不存在，创建新文件进行写入。<br>a+　打开一个文件用于读写。如果该文件已存在，文件指针将会放在文件的结尾。文件打开时会是追加模式。如果该文件不存在，创建新文件用于读写。<br>ab+　以二进制格式打开一个文件用于追加。如果该文件已存在，文件指针将会放在文件的结尾。如果该文件不存在，创建新文件用于读写。  </p>
+</blockquote>
+</li>
+<li><p>简化写法</p>
+<p> 另外文件写入还有一种简写方法，那就是使用 with as 语法，在 with 控制块结束时，文件会自动关闭，所以就不需要再调用 close() 方法了。</p>
+<p> 所以上面的保存方式我们可以简写如下：</p>
+<pre><code> with open(&#39;explore.txt&#39;, &#39;a&#39;, encoding=&#39;utf-8&#39;) as file:
+     file.write(&#39;\n&#39;.join([question, author, answer]))
+     file.write(&#39;\n&#39; + &#39;=&#39; * 50 + &#39;\n&#39;)
+</code></pre><p> 如果想保存时将原文清空，那么可以将第二个参数改写为 w，代码如下：</p>
+<pre><code> with open(&#39;explore.txt&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as file:    
+     file.write(&#39;\n&#39;.join([question, author, answer]))    
+     file.write(&#39;\n&#39; + &#39;=&#39; * 50 + &#39;\n&#39;)
+</code></pre><p> 如果数据结构为[{},{}…]这种格式的就需要将文本转换一下，再写出</p>
+<pre><code> for row in student_list_info:
+     for txt in row.values():
+         rstr += str(txt) + &#39;\t&#39;
+     rstr += &#39;\n&#39;
+
+ with open(&#39;students_txt.txt&#39;, &#39;a+&#39;, encoding=&#39;utf8&#39;) as f:
+     f.write(rstr)
+</code></pre></li>
+</ol>
+<h3 id="Json文件存储"><a href="#Json文件存储" class="headerlink" title="Json文件存储"></a>Json文件存储</h3><p>Json，全称为 JavaScript Object Notation, 也就是 JavaScript 对象标记，通过对象和数组的组合来表示数据，构造简洁但是结构化程度非常高，它是一种轻量级的数据交换格式，本节我们来了解一下利用 Python 保存数据到 Json 文件的方法。</p>
+<ol>
+<li><p>对象和数组</p>
+<p> 在 JavaScript 语言中，一切都是对象。因此，任何支持的类型都可以通过 Json 来表示，例如字符串、数字、对象、数组等。但是对象和数组是比较特殊且常用的两种类型。</p>
+<ul>
+<li>对象<br>  对象在 JavaScript 中是使用花括号 {} 包裹起来的内容，数据结构为 {key1：value1, key2：value2, …} 的键值对结构。在面向对象的语言中，key 为对象的属性，value 为对应的值。键名可以使用整数和字符串来表示。值的类型可以是任意类型。</li>
+<li><p>数组<br>  数组在 JavaScript 中是方括号 [] 包裹起来的内容，数据结构为 [“java”, “javascript”, “vb”, …] 的索引结构。在 JavaScript 中，数组是一种比较特殊的数据类型，它也可以像对象那样使用键值对，但还是索引使用得多。同样，值的类型可以是任意类型。</p>
+<p>所以一个 Json 对象可以写为如下形式：</p>
+<pre><code>  [{
+      &quot;name&quot;: &quot;Bob&quot;,        
+      &quot;gender&quot;: &quot;male&quot;,        
+      &quot;birthday&quot;: &quot;1992-10-18&quot;
+
+  }, {
+
+       &quot;name&quot;: &quot;Selina&quot;,        
+      &quot;gender&quot;: &quot;female&quot;,        
+      &quot;birthday&quot;: &quot;1995-10-18&quot;
+
+  }]
+</code></pre><p>由中括号包围的就相当于列表类型，列表的每个元素可以是任意类型，在示例中它是字典类型，由大括号包围。</p>
+<p>Json 可以由以上两种形式自由组合而成，可以无限次嵌套，结构清晰，是数据交换的极佳方式。</p>
+</li>
+</ul>
+</li>
+<li><p>读取Json</p>
+<p> Python 为我们提供了简单易用的 json 库来供我们实现 Json 文件的读写操作，我们可以调用 json 库的 loads() 方法将 Json 文本字符串转为 Json 对象，可以通过 dumps()方法将 Json 对象转为文本字符串。</p>
+<p> 例如在这里有一段 Json 形式的字符串，它是 str 类型，我们用 Python 将可其转换为可操作的数据结构，如列表或字典。</p>
+<pre><code> import json
+
+ str = &#39;&#39;&#39;
+ [{
+
+     &quot;name&quot;: &quot;Bob&quot;,        
+     &quot;gender&quot;: &quot;male&quot;,        
+     &quot;birthday&quot;: &quot;1992-10-18&quot;
+
+ }, {
+
+     &quot;name&quot;: &quot;Selina&quot;,        
+     &quot;gender&quot;: &quot;female&quot;,        
+     &quot;birthday&quot;: &quot;1995-10-18&quot;        
+ }]
+
+ &#39;&#39;&#39;
+
+ print(type(str))        
+ data = json.loads(str)        
+ print(data)        
+ print(type(data))
+</code></pre><p> 运行结果：</p>
+<pre><code> &lt;class &#39;str&#39;&gt;
+
+ [{&#39;name&#39;: &#39;Bob&#39;, &#39;gender&#39;: &#39;male&#39;, &#39;birthday&#39;: &#39;1992-10-18&#39;}, {&#39;name&#39;: &#39;Selina&#39;, &#39;gender&#39;: &#39;female&#39;, &#39;birthday&#39;: &#39;1995-10-18&#39;}]
+
+ &lt;class &#39;list&#39;&gt;
+</code></pre><p> 在这里我们使用了 loads() 方法将字符串转为 Json 对象，由于最外层是中括号，所以最终的类型是列表类型。</p>
+<p> 这样一来我们就可以用索引来取到对应的内容了，例如我们想取第一个元素里的 name 属性，就可以使用如下方式获取：</p>
+<pre><code> data[0][&#39;name&#39;]
+
+ data[0].get(&#39;name&#39;)
+</code></pre><p> 得到的结果都是：</p>
+<pre><code> Bob
+</code></pre><p> 通过中括号加 0 索引我们可以拿到第一个字典元素，然后再调用其键名即可得到相应的键值。在获取键值的时候有两种方式，一种是中括号加键名，另一种是 get() 方法传入键名。推荐使用 get() 方法来获取内容，这样如果键名不存在的话不会报错，会返回None。另外 get() 方法还可以传入第二个参数即默认值，我们用一个示例感受一下：</p>
+<pre><code> data[0].get(&#39;age&#39;)
+ data[0].get(&#39;age&#39;, 25)
+</code></pre><p> 运行结果：</p>
+<pre><code> None
+</code></pre><p> 在这里我们尝试获取年龄 age，其实在原字典中是不存在该键名的，如果不存在，默认会返回 None，如果传入第二个参数即默认值，那么在不存在的情况下则返回该默认值。</p>
+<p> 值得注意的是 Json 的数据需要用双引号来包围，不能使用单引号。例如若使用如下形式表示则会出现错误：</p>
+<pre><code> import json    
+ str = &#39;&#39;&#39;    
+ [{    
+     &#39;name&#39;: &#39;Bob&#39;,        
+     &#39;gender&#39;: &#39;male&#39;,    
+     &#39;birthday&#39;: &#39;1992-10-18&#39;        
+ }]
+
+ &#39;&#39;&#39;        
+ data = json.loads(str)
+</code></pre><p> 运行结果：</p>
+<pre><code> json.decoder.JSONDecodeError: Expecting property name enclosed in double quotes: line 3 column 5 (char 8)
+</code></pre><p> 在这里会出现 Json 解析错误的提示，是因为在这里数据用了单括号来包围，请千万注意 Json 字符串的表示需要用双引号，否则 loads() 方法会解析失败。</p>
+<p> 如果我们是从 Json 文本中读取内容，例如在这里有一个data.json 文本文件，其内容是刚才我们所定义的 Json 字符串。</p>
+<p> 我们可以先将文本文件内容读出，然后再利用 loads() 方法转化。</p>
+<pre><code> import json     
+
+ with open(&#39;data.json&#39;, &#39;r&#39;) as file:
+     str = file.read()
+     data = json.loads(str)
+     print(data)
+</code></pre><p> 运行结果：</p>
+<pre><code> [{&#39;name&#39;: &#39;Bob&#39;, &#39;gender&#39;: &#39;male&#39;, &#39;birthday&#39;: &#39;1992-10-18&#39;}, {&#39;name&#39;: &#39;Selina&#39;, &#39;gender&#39;: &#39;female&#39;, &#39;birthday&#39;: &#39;1995-10-18&#39;}]
+</code></pre><p> 以上是读取 Json 文件的方法。</p>
+</li>
+<li><p>输出Json</p>
+<p> 另外我们还可以调用 dumps() 方法来将 Json 对象转化为字符串。</p>
+<p> 例如我们将刚上例中的列表重新写入到文本。</p>
+<pre><code> import json                 
+ data = [{        
+     &#39;name&#39;: &#39;Bob&#39;,    
+     &#39;gender&#39;: &#39;male&#39;,    
+     &#39;birthday&#39;: &#39;1992-10-18&#39;
+ }]
+
+ with open(&#39;data.json&#39;, &#39;w&#39;) as file:    
+     file.write(json.dumps(data))
+</code></pre><p> 利用 dumps() 方法我们可以将 Json 对象转为字符串，然后再调用文件的 write() 方法即可写入到文本</p>
+<p> 另外如果我们想保存 Json 的格式，可以再加一个参数 indent，代表缩进字符个数。</p>
+<p> with open(‘data.json’, ‘w’) as file:</p>
+<pre><code> file.write(json.dumps(data, indent=2))
+</code></pre><p> 这样得到的内容会自动带有缩进，格式会更加清晰。</p>
+<p> 另外如果 Json 中包含中文字符，例如我们将之前的 Json 的部分值改为中文，再用之前的方法写入到文本。</p>
+<pre><code> import json     
+ data = [{
+     &#39;name&#39;: &#39;王伟&#39;,
+     &#39;gender&#39;: &#39;男&#39;,
+     &#39;birthday&#39;: &#39;1992-10-18&#39;
+ }]
+
+ with open(&#39;data.json&#39;, &#39;w&#39;) as file:        
+     file.write(json.dumps(data, indent=2))
+</code></pre><p> 为了输出中文，我们还需要指定一个参数 ensure_ascii 为 False，另外规定文件输出的编码。</p>
+<pre><code> with open(&#39;data.json&#39;, &#39;w&#39;, encoding=&#39;utf-8&#39;) as file:
+     file.write(json.dumps(data, indent=2, ensure_ascii=False))
+</code></pre><p> 这样我们就可以输出 Json 为中文了，所以如果字典中带有中文的内容我们需要设置 ensure_ascii 参数为 False 才可正常写入中文。</p>
+</li>
+</ol>
+<h3 id="CSV文件存储"><a href="#CSV文件存储" class="headerlink" title="CSV文件存储"></a>CSV文件存储</h3><p>CSV，全称叫做 Comma-Separated Values，中文可以叫做逗号分隔值或字符分隔值，其文件以纯文本形式存储表格数据。该文件是一个字符序列，可以由任意数目的记录组成，记录间以某种换行符分隔，每条记录由字段组成，字段间的分隔符是其它字符或字符串，最常见的是逗号或制表符，不过所有记录都有完全相同的字段序列，相当于一个结构化表的纯文本形式，它相比 Excel 文件更加简介，XLS 文本是电子表格，它包含了文本、数值、公式和格式等内容，而 CSV 中不包含这些内容，就是特定字符分隔的纯文本，结构简单清晰，所以有时候我们用 CSV 来保存数据是比较方便的，本节我们来讲解下 Python 读取和写入 CSV 文件的过程。</p>
+<ol>
+<li><p>写入</p>
+<p> 在这里我们先看一个最简单的例子：</p>
+<pre><code> import csv 
+ with open(&#39;data.csv&#39;, &#39;w&#39;) as csvfile:    
+     writer = csv.writer(csvfile)    
+     writer.writerow([&#39;id&#39;, &#39;name&#39;, &#39;age&#39;])        
+     writer.writerow([&#39;10001&#39;, &#39;Mike&#39;, 20])
+</code></pre><p> 首先打开了一个 data.csv 文件，然后指定了打开的模式为 w，即写入，获得文件句柄，随后调用 csv 库的 writer() 方法初始化一个写入对象，传入该句柄，然后调用 writerow() 方法传入每行的数据即可完成写入。</p>
+<p> 运行结束后会生成一个名为 data.csv 的文件，数据就成功写入了，直接文本形式打开的话内容如下：</p>
+<pre><code> id,name,age
+ 10001,Mike,20
+ 10002,Bob,22
+ 10003,Jordan,21
+</code></pre><p> 可以看到写入的文本默认是以逗号分隔的，调用一次 writerow() 方法即可写入一行数据</p>
+<p> 实际执行结果：每隔一行都有一个空行，改写成如下形式则没有空行了：</p>
+<p> with open(‘data.csv’, ‘w’,newline=’’) as csvfile:</p>
+<p> 如果我们想修改列与列之间的分隔符可以传入 delimiter 参数，代码如下：</p>
+<p> import csv<br> with open(‘data.csv’, ‘w’) as csvfile:</p>
+<pre><code> writer = csv.writer(csvfile, delimiter=&#39; &#39;)
+ writer.writerow([&#39;id&#39;, &#39;name&#39;, &#39;age&#39;])
+ writer.writerow([&#39;10001&#39;, &#39;Mike&#39;, 20])
+</code></pre><p> 例如这里在初始化写入对象的时候传入 delimiter 为空格，这样输出的结果的每一列就是以空格分隔的了，内容如下：</p>
+<pre><code> id name age
+ Mike 20
+ Bob 22
+ Jordan 21
+</code></pre><p> 实际效果：每行的数据都写在第一列了</p>
+<p> 另外我们也可以调用 writerows() 方法同时写入多行，此时参数就需要为二维列表，例如：</p>
+<pre><code> import csv
+ with open(&#39;data.csv&#39;, &#39;w&#39;) as csvfile:
+     writer = csv.writer(csvfile)
+     writer.writerow([&#39;id&#39;, &#39;name&#39;, &#39;age&#39;])
+     writer.writerows([[&#39;10001&#39;, &#39;Mike&#39;, 20], [&#39;10002&#39;, &#39;Bob&#39;, 22], [&#39;10003&#39;, &#39;Jordan&#39;, 21]])
+</code></pre><p> 输出效果是相同的，内容如下：</p>
+<pre><code> id,name,age
+ 10001,Mike,20
+ 10002,Bob,22
+ 10003,Jordan,21
+</code></pre><p> 但是一般情况下爬虫爬取的都是结构化数据，我们一般会用字典来表示，在 csv 库中也提供了字典的写入方式，实例如下：</p>
+<pre><code> import csv
+ with open(&#39;data.csv&#39;, &#39;w&#39;) as csvfile:
+     fieldnames = [&#39;id&#39;, &#39;name&#39;, &#39;age&#39;]
+     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+     writer.writeheader()
+     writer.writerow({&#39;id&#39;: &#39;10001&#39;, &#39;name&#39;: &#39;Mike&#39;, &#39;age&#39;: 20})
+     writer.writerow({&#39;id&#39;: &#39;10002&#39;, &#39;name&#39;: &#39;Bob&#39;, &#39;age&#39;: 22})
+     writer.writerow({&#39;id&#39;: &#39;10003&#39;, &#39;name&#39;: &#39;Jordan&#39;, &#39;age&#39;: 21})
+</code></pre><p> 在这里我们先定义了三个字段，用 fieldnames 表示，然后传给 DictWriter 初始化一个字典写入对象，然后可以先调用 writeheader() 方法先写入头信息，然后再调用 writerow() 方法传入相应字典即可，最终写入的结果是完全相同的，内容如下：</p>
+<pre><code> id,name,age
+ 10001,Mike,20
+ 10002,Bob,22
+ 10003,Jordan,21
+</code></pre><p> 这样我们就可以完成字典到 CSV 文件的写入了。<br> 另外如果我们想追加写入的话可以修改文件的打开模式，如将 open() 函数的第二个参数改成 a 就可以变成追加写入，代码如下：</p>
+<pre><code> import csv
+ with open(&#39;data.csv&#39;, &#39;a&#39;) as csvfile:
+     fieldnames = [&#39;id&#39;, &#39;name&#39;, &#39;age&#39;]
+     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+     writer.writerow({&#39;id&#39;: &#39;10004&#39;, &#39;name&#39;: &#39;Durant&#39;, &#39;age&#39;: 22})
+</code></pre><p> 这样在上面的基础上再执行这段代码，文件内容便会变成：</p>
+<pre><code> id,name,age
+ 10001,Mike,20
+ 10002,Bob,22
+ 10003,Jordan,21
+ 10004,Durant,22
+</code></pre><p> 可见数据被追加写入到了文件中。<br> 如果我们要写入中文内容的话可能会遇到字符编码的问题，此时我们需要给 open() 参数指定一个编码格式，比如这里再写入一行包含中文的数据，代码需要改写如下：</p>
+<pre><code> import csv
+ with open(&#39;data.csv&#39;, &#39;a&#39;, encoding=&#39;utf-8&#39;) as csvfile:
+     fieldnames = [&#39;id&#39;, &#39;name&#39;, &#39;age&#39;]
+     writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
+     writer.writerow({&#39;id&#39;: &#39;10005&#39;, &#39;name&#39;: &#39;王伟&#39;, &#39;age&#39;: 22})
+</code></pre><p> 在这里需要给 open() 函数指定编码，否则可能会发生编码错误。</p>
+<p> 注意：</p>
+<p> 1.指定编码的话,使用文本文档打开csv文件，中文可以显示，但是使用表格打开csv文件中文会乱码</p>
+<p> 2.不指定编码的话，使用文本文档打开csv文件，中文显示乱码，但是使用表格打开csv文件中文会显示</p>
+<p> 以上便是 CSV 文件的写入方法。</p>
+<p> 另外    如果我们接触过 Pandas 等库的话，可以调用 DataFrame 对象的 to_csv() 方法也可以非常方便地将数据写入到 CSV 文件中。</p>
+</li>
+<li><p>读取</p>
+<p> 我们同样可以使用 csv 库来读取 CSV 文件，例如我们现在将刚才写入的文件内容读取出来，代码如下：</p>
+<pre><code> import csv
+ with open(&#39;data.csv&#39;, &#39;r&#39;, encoding=&#39;utf-8&#39;) as csvfile:
+ reader = csv.reader(csvfile)
+     for row in reader:
+         print(row)
+</code></pre><p> 运行结果：</p>
+<pre><code> [&#39;id&#39;, &#39;name&#39;, &#39;age&#39;]
+ [&#39;10001&#39;, &#39;Mike&#39;, &#39;20&#39;]
+ [&#39;10002&#39;, &#39;Bob&#39;, &#39;22&#39;]
+ [&#39;10003&#39;, &#39;Jordan&#39;, &#39;21&#39;]
+ [&#39;10004&#39;, &#39;Durant&#39;, &#39;22&#39;]
+ [&#39;10005&#39;, &#39;王伟&#39;, &#39;22&#39;]
+</code></pre><p> 在这里我们构造的是 Reader 对象，通过遍历输出了每行的内容，每一行都是一个列表形式，注意在这里如果 CSV 文件中包含中文的话需要指定文件编码。</p>
+<p> 另外如果我们接触过 Pandas 的话，可以利用 read_csv() 方法将数据从 CSV 中读取出来，例如：</p>
+<pre><code> import pandas  as pd
+ df = pd.read_csv(&#39;data.csv&#39;)
+ print(df)
+</code></pre><p> 运行结果：</p>
+<pre><code>       id    name  age
+  10001    Mike   20
+  10002     Bob   22
+  10003  Jordan   21
+  10004  Durant   22
+  10005      王伟   22
+</code></pre></li>
+</ol>
+<p>参考链接  </p>
+<ul>
+<li><a href="https://www.cnblogs.com/sanduzxcvbnm/p/10334954.html" target="_blank" rel="noopener">爬虫文件存储:txt文档，json文件，csv文件</a></li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">您的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://CityNorth.github.io" class="b-link-green">城北</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/06/02/pa-chong/shu-ju-chi-jiu-hua/" class="b-link-green">数据文件储存</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/06/04/pa-chong/mysql-chu-cun/">
+                    <div class="card-image">
+                        
+                        <img src="https://raw.githubusercontent.com/CityNorth/material/master/image/MYSQLchucun.png" class="responsive-img" alt="MySQL储存">
+                        
+                        <span class="card-title">MySQL储存</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">爬虫MYSQL储存一、连接并创建数据库import pymysql
+
+db = pymysql.connect(host=&#39;localhost&#39;, user=&#39;root&#39;, password=&#39;123</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-04
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/爬虫/" class="post-category" target="_blank">
+                                    爬虫
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/06/01/pa-chong/shu-ju-ti-qu/">
+                    <div class="card-image">
+                        
+                        <img src="https://raw.githubusercontent.com/CityNorth/material/master/image/spiders_data.png" class="responsive-img" alt="爬虫页面的数据提取">
+                        
+                        <span class="card-title">爬虫页面的数据提取</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">数据提取的几种方式
+一、正则表达式1. 语法规则
+单个字符
+  . 用来匹配除了换行符以外的任意单个字符 。
+  \d 匹配单个数字
+  \w 匹配单个字符 ，在ASCII码中等价于 [a-zA-Z0-9]_ ，在Unicode中则更加匹配</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-06-01
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/爬虫/" class="post-category" target="_blank">
+                                    爬虫
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/爬虫/" target="_blank">
+                        <span class="chip bg-color">爬虫</span>
+                    </a>
+                    
+                    <a href="/tags/Python/" target="_blank">
+                        <span class="chip bg-color">Python</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 城北<br />'
+            + '作者: CityNorth<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; CityNorth&nbsp;&nbsp; 2019 - 2020
+            
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.6k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CityNorth" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1509925520@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1509925520" class="tooltipped" data-tooltip="QQ联系我: 1509925520" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+ 
+</body>
+</html>

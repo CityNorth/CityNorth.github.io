@@ -1,0 +1,1145 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="utf-8">
+    <meta name="keywords" content="R语言-电影评分预测模型, 城北">
+    <meta name="description" content="R语言-电影评分预测模型评分系统是一种常见的推荐系统。
+现在使用R语言基于协同过滤算法来构建一个电影评分预测模型及电影推荐模型。
+一、前提准备
+R语言包：  
+
+ggplot2包（绘图），    
+recommenderlab包，    
+">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>R语言-电影评分预测模型 | 城北</title>
+    <link rel="icon" type="image/png" href="/medias/logo.png">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+    <style type="text/css">
+        
+        code[class*="language-"], pre[class*="language-"] {
+            white-space: pre !important;
+        }
+        
+    </style>
+
+    <script src="/libs/jquery/jquery-2.2.0.min.js"></script>
+</head>
+
+
+<body>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+
+<header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/favicon.gif" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">城北</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fa fa-navicon"></i></a>
+<ul class="right">
+    
+    <li class="hide-on-med-and-down">
+        <a href="/" class="waves-effect waves-light">
+            
+            <i class="fa fa-home"></i>
+            
+            <span>首页</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/tags" class="waves-effect waves-light">
+            
+            <i class="fa fa-tags"></i>
+            
+            <span>标签</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/categories" class="waves-effect waves-light">
+            
+            <i class="fa fa-bookmark"></i>
+            
+            <span>分类</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/archives" class="waves-effect waves-light">
+            
+            <i class="fa fa-archive"></i>
+            
+            <span>归档</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/about" class="waves-effect waves-light">
+            
+            <i class="fa fa-user-circle-o"></i>
+            
+            <span>关于</span>
+        </a>
+    </li>
+    
+    <li class="hide-on-med-and-down">
+        <a href="/friends" class="waves-effect waves-light">
+            
+            <i class="fa fa-address-book"></i>
+            
+            <span>友情链接</span>
+        </a>
+    </li>
+    
+    <li>
+        <a href="#searchModal" class="modal-trigger waves-effect waves-light">
+            <i id="searchIcon" class="fa fa-search" title="搜索"></i>
+        </a>
+    </li>
+</ul>
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/favicon.gif" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">城北</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li>
+            <a href="/" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-home"></i>
+                
+                首页
+            </a>
+        </li>
+        
+        <li>
+            <a href="/tags" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-tags"></i>
+                
+                标签
+            </a>
+        </li>
+        
+        <li>
+            <a href="/categories" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-bookmark"></i>
+                
+                分类
+            </a>
+        </li>
+        
+        <li>
+            <a href="/archives" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-archive"></i>
+                
+                归档
+            </a>
+        </li>
+        
+        <li>
+            <a href="/about" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-user-circle-o"></i>
+                
+                关于
+            </a>
+        </li>
+        
+        <li>
+            <a href="/friends" class="waves-effect waves-light">
+                
+                <i class="fa fa-fw fa-address-book"></i>
+                
+                友情链接
+            </a>
+        </li>
+        
+        
+        <li><div class="divider"></div></li>
+        <li>
+            <a href="https://github.com/CityNorth" class="waves-effect waves-light" target="_blank">
+                <i class="fa fa-github-square fa-fw"></i>城北
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+        </div>
+
+        
+            <style>
+    .nav-transparent .github-corner {
+        display: none !important;
+    }
+
+    .github-corner {
+        position: absolute;
+        z-index: 10;
+        top: 0;
+        right: 0;
+        border: 0;
+        transform: scale(1.1);
+    }
+
+    .github-corner svg {
+        color: #0f9d58;
+        fill: #fff;
+        height: 64px;
+        width: 64px;
+    }
+
+    .github-corner:hover .octo-arm {
+        animation: a 0.56s ease-in-out;
+    }
+
+    .github-corner .octo-arm {
+        animation: none;
+    }
+
+    @keyframes a {
+        0%,
+        to {
+            transform: rotate(0);
+        }
+        20%,
+        60% {
+            transform: rotate(-25deg);
+        }
+        40%,
+        80% {
+            transform: rotate(10deg);
+        }
+    }
+</style>
+
+<a href="https://github.com/CityNorth" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
+   data-tooltip="城北" data-position="left" data-delay="50">
+    <svg viewBox="0 0 250 250" aria-hidden="true">
+        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+              fill="currentColor" class="octo-body"></path>
+    </svg>
+</a>
+        
+    </nav>
+
+</header>
+
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://raw.githubusercontent.com/CityNorth/material/master/image/movie-model.jpg')">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <div class="description center-align post-title">
+                        R语言-电影评分预测模型
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<main class="post-container content">
+
+    
+    <link rel="stylesheet" href="/libs/tocbot/tocbot.css">
+<style>
+    #articleContent h1::before,
+    #articleContent h2::before,
+    #articleContent h3::before,
+    #articleContent h4::before,
+    #articleContent h5::before,
+    #articleContent h6::before {
+        display: block;
+        content: " ";
+        height: 100px;
+        margin-top: -100px;
+        visibility: hidden;
+    }
+
+    #articleContent :focus {
+        outline: none;
+    }
+
+    .toc-fixed {
+        position: fixed;
+        top: 64px;
+    }
+
+    .toc-widget {
+        padding-left: 20px;
+    }
+
+    .toc-widget .toc-title {
+        margin: 35px 0 15px 0;
+        padding-left: 17px;
+        font-size: 1.5rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    .toc-widget ol {
+        padding: 0;
+        list-style: none;
+    }
+
+    #toc-content ol {
+        padding-left: 10px;
+    }
+
+    #toc-content ol li {
+        padding-left: 10px;
+    }
+
+    #toc-content .toc-link:hover {
+        color: #42b983;
+        font-weight: 700;
+        text-decoration: underline;
+    }
+
+    #toc-content .toc-link::before {
+        background-color: transparent;
+        max-height: 25px;
+    }
+
+    #toc-content .is-active-link {
+        color: #42b983;
+    }
+
+    #toc-content .is-active-link::before {
+        background-color: #42b983;
+    }
+
+    #floating-toc-btn {
+        position: fixed;
+        right: 20px;
+        bottom: 76px;
+        padding-top: 15px;
+        margin-bottom: 0;
+        z-index: 998;
+    }
+
+    #floating-toc-btn .btn-floating {
+        width: 48px;
+        height: 48px;
+    }
+
+    #floating-toc-btn .btn-floating i {
+        line-height: 48px;
+        font-size: 1.4rem;
+    }
+</style>
+<div class="row">
+    <div id="main-content" class="col s12 m12 l9">
+        <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/R/" target="_blank">
+                                <span class="chip bg-color">R</span>
+                            </a>
+                        
+                            <a href="/tags/数据分析/" target="_blank">
+                                <span class="chip bg-color">数据分析</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fa fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/R/" class="post-category" target="_blank">
+                                R
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                <div class="post-date info-break-policy">
+                    <i class="fa fa-calendar-minus-o fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2019-05-19
+                </div>
+
+                
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-file-word-o fa-fw"></i>文章字数:&nbsp;&nbsp;
+                        3.6k
+                    </div>
+                    
+
+                    
+                    <div class="info-break-policy">
+                        <i class="fa fa-clock-o fa-fw"></i>阅读时长:&nbsp;&nbsp;
+                        14 分
+                    </div>
+                    
+                
+				
+				
+                    <div id="busuanzi_container_page_pv" class="info-break-policy">
+                        <i class="fa fa-eye fa-fw"></i>阅读次数:&nbsp;&nbsp;
+                        <span id="busuanzi_value_page_pv"></span>
+                    </div>
+				
+            </div>
+        </div>
+        <hr class="clearfix">
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <h2 id="R语言-电影评分预测模型"><a href="#R语言-电影评分预测模型" class="headerlink" title="R语言-电影评分预测模型"></a>R语言-电影评分预测模型</h2><p>评分系统是一种常见的推荐系统。</p>
+<p>现在使用R语言基于协同过滤算法来构建一个电影评分预测模型及电影推荐模型。</p>
+<h3 id="一、前提准备"><a href="#一、前提准备" class="headerlink" title="一、前提准备"></a>一、前提准备</h3><ol>
+<li><p>R语言包：  </p>
+<ul>
+<li>ggplot2包（绘图），    </li>
+<li>recommenderlab包，    </li>
+<li>reshape包（数据处理）  <pre><code>   install.packages(&quot;recommenderlab&quot;)
+   install.packages(&quot;reshape&quot;)
+   install.packages(&quot;ggplot2&quot;)
+   library(recommenderlab)
+   library(reshape)
+   library(ggplot2) 
+</code></pre></li>
+</ul>
+</li>
+<li><p>获取数据：大家可以在明尼苏达州大学的社会化计算研究中心官网上面下载这些免费数据集，网站链接为<a href="http://grouplens.org/datasets/movielens/" target="_blank" rel="noopener">http://grouplens.org/datasets/movielens/</a></p>
+<p> 或者：链接：<a href="https://pan.baidu.com/s/1o8mlt8Y" target="_blank" rel="noopener">https://pan.baidu.com/s/1o8mlt8Y</a> 密码：bkyu</p>
+<p> 数据说明：</p>
+<p> 这个数据集包括：     </p>
+<ul>
+<li>来自943个用户的1682个电影的10万个评级（1-5）。 </li>
+<li>每个用户已经评价至少20部电影。 </li>
+<li>为用户提供简单的人口统计信息（年龄，性别，职业，邮编）</li>
+</ul>
+</li>
+</ol>
+<p>以下是数据的简要说明。</p>
+<hr>
+<blockquote>
+<p>ml-data.tar.gz - 压缩的tar文件。要重建u数据文件，请执行以下操作：gunzip ml-data.tar.gz tar xvf ml-data.tar mku.sh<br>u.data - 完整的u数据集，984个用户对1682项的100000评级。每位用户至少评了20部电影。用户和项目从1开始连续编号。数据是随机排序的。这是一个以制表符分隔的用户ID列表 项目ID | 评级| 时间戳。时间戳是自1970年1月1日UTC以来的unix秒<br>u.info - u数据集中的用户，项目和评级数。<br>u.item - 有关项目（电影）的信息; 这是一个以标签分隔的电影ID列表 电影片名| 发布日期| 视频发布日期| IMDb URL | 未知| 行动| 冒险| 动画| 儿童| 喜剧| 犯罪| 纪录片| 戏剧| 幻想| 电影黑色| 恐怖| 音乐| 神秘| 浪漫| 科幻| 惊悚片| 战争| 西方| 最后19个字段是流派，1表示电影属于该类型，0表示不是; 电影可以同时使用多种类型。电影ID是u.data数据集中使用的。<br>u.genre - 类型列表。<br>u.user - 有关用户的人口统计信息; 这是一个以制表符分隔的用户ID列表 年龄| 性别| 职业| 邮政编码用户ID是u.data数据集中使用的ID。<br>u.occupation - 职业列表。<br>u1.base - 数据集u1.base和u1.test通过u5.base和u5.test u1.test将u数据的80％/ 20％拆分为训练和测试数据。u2.base u1，…，u5中的每一个都有不相交的测试集; 这个如果用于u2.test 5折交叉验证（在那里你用每个训练和测试集重复你的实验u3.base并平均结果）。u3.test这些数据集可以通过mku.sh从u.data生成。u4.base u4.test u5.base u5.test<br>ua.base - 数据集ua.base，ua.test，ub.base和ub.test ua.test将u数据分成训练集和ub.base的测试集，每个用户只有10个等级测试集。集合ub.test ua.test和ub.test是不相交的。这些数据集可以通过mku.sh从u.data生成。<br>allbut.pl - 生成训练和测试集的脚本，其中除了n个用户评级之外的所有评级都在训练数据中。<br>mku.sh - 用于从u.data生成所有u数据集的shell脚本。  </p>
+</blockquote>
+<h3 id="二、数据处理"><a href="#二、数据处理" class="headerlink" title="二、数据处理"></a>二、数据处理</h3><pre><code># 读取数据
+mydata&lt;-read.table(&quot;D:\\r语言\\ml-100k\\u.data&quot;,header = FALSE,stringsAsFactors = TRUE)
+# stringAsFactor=TRUE 表示表中的所有列都不是因子，是数值型数据
+</code></pre><p>第一列为用户ID，第二列电影ID，第三列是评分，第四列是用户评分的时间。这些在数据介绍中都要介绍。用户的评论时间对我们的分析没有用处，因此我们可以删掉这一列。</p>
+<pre><code>mydata&lt;-mydata[,-4]
+</code></pre><p>现在这份数据集只有三列。</p>
+<p>使用ggplot2分析用户对电影的评分结果。</p>
+<p>要使用饼图来展现出结果，这样可以很好的展现评分列的分布特点。  </p>
+<pre><code>ggplot(mydata,x=V3,aes(x=factor(1),fill=factor(V3)))+geom_bar(width = 1)+
+  coord_polar(theta=&quot;y&quot;)+ggtitle(&quot;评分分布图&quot;)+
+  labs(x=&quot;&quot;,y=&quot;&quot;)+
+  guides(fill=guide_legend(title = &#39;评分分数&#39;))
+</code></pre><p><img src="https://img-blog.csdn.net/20171203151748893?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQvdTAxMjQyOTU1NQ==/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/Center" alt>  </p>
+<p>由图可知，评分为一分，两分的特别少，用户给出三分，四分的比较多，占了三分之二多。当一个新电影的评分低于3.5分时，差不多就失去了一半的用户。使用reshape包对数据进行处理，生成一个v1*v2，v3值的填充矩阵。  </p>
+<pre><code>mydata&lt;-cast(mydata,V1~V2,value=&quot;V3&quot;) #生成一个以v1为行，v2为列的矩阵，使用v3进行填充
+mydata&lt;-mydata[,-1] #第一列数字为序列，剔除
+</code></pre><p>这个时候，mydata有两个属性值cast_df 和data.frame。cast_df就类似Excel中的透视表；我们要将mydata属性改为数据框，其中cast_df是不能直接转换为matrix的，因此需要去掉这个类属性，只保留data.frame。  </p>
+<pre><code>mydata&lt;-as.data.frame(mydata)
+dim(mydata)  
+#输出行列数  [1]  943 1682
+</code></pre><p>接下来，我们仍要对数据进行处理，使之转换成recommenderlab包可以处理的realRatingMatrix属性。在下面，我们首先将mydata转化为一个矩阵，然后使用as()函数，进行强制类型转换，达到了我们要的结果。我们还需要给我每列数据命名，否则后面建模会出现报错</p>
+<pre><code>mydata&lt;-as.matrix(mydata)
+mydata&lt;-as(mydata,&quot;realRatingMatrix&quot;)  
+#生成一个 943*1682 realRatingMatrix类型的矩阵，包括了100000条记录 
+colnames(mydata)&lt;-paste0(&quot;movie&quot;,1:1682,sep=&quot;&quot;)
+#利用paste0给电影编号起名
+</code></pre><h3 id="三、建立模型"><a href="#三、建立模型" class="headerlink" title="三、建立模型"></a>三、建立模型</h3><p>在recommenderlab包里面，针对realRatingMatrix数据类型，总共提供了6种模型，分别是：基于项目协同过滤（IBCF）， 主成分分析（PCA）， 基于流行度推荐（POPULAR）,随机推荐（RANDOM）,奇异值分解（SVD），基于用户协同过滤算法（UBCF）。  </p>
+<ul>
+<li><p>协同过滤主要有两个步骤：  </p>
+<ul>
+<li><p>①依据目标用户的已知电影评分找到与目标用户观影风格相似的用户群。  </p>
+</li>
+<li><p>②计算该用户群对其他电影的评分，并作为目标用户的预测评分。  </p>
+</li>
+</ul>
+</li>
+</ul>
+<p>这份数据是943位用户对1682部电影的一个评分，但每个人不可能将这些电影全都看完，而且不可能对所有看过的电影进行评分，因此我们我们刚刚生成的评分矩阵是一个非常稀疏，而且含有许多缺失值的矩阵。但这些并不影响协同过滤的工作效果。所以我们选择了协同过滤来建立我们的模型。</p>
+<h5 id="建立模型"><a href="#建立模型" class="headerlink" title="建立模型"></a>建立模型</h5><pre><code>mydata.model &lt;- Recommender( mydata[1:943], method = &quot;UBCF&quot;)
+</code></pre><h6 id="预测1"><a href="#预测1" class="headerlink" title="预测1"></a>预测1</h6><pre><code>mydata.predict &lt;- predict(mydata.model,mydata[100:110], type=&quot;ratings&quot;)    
+as(mydata.predict,&quot;matrix&quot;)[1:4,1000:1005]
+</code></pre><hr>
+<pre><code>    movie1000 movie1001 movie1002 movie1003 movie1004 movie1005
+100  3.067797  3.043630  3.067797  3.067797  3.067797  3.067797
+101  2.895522  2.895522  2.895522  2.895522  2.895522  2.895522
+102  2.615741  2.615741  2.615741  2.615741  2.615741  2.535489
+103  3.620690  3.620690  3.620690  3.620690  3.620690  3.620690
+</code></pre><ul>
+<li>用户100~103 对电影 1000~1005 预测评分。</li>
+</ul>
+<hr>
+<h6 id="预测2"><a href="#预测2" class="headerlink" title="预测2"></a>预测2</h6><pre><code>mydata.predict1&lt;-predict(mydata.model,mydata[10:15],n=5)
+as(mydata.predict1,&quot;list&quot;)   
+</code></pre><hr>
+<pre><code>$`10`
+[1] &quot;movie313&quot; &quot;movie300&quot; &quot;movie222&quot; &quot;movie311&quot; &quot;movie405&quot;
+
+$`11`
+[1] &quot;movie285&quot; &quot;movie315&quot; &quot;movie302&quot; &quot;movie313&quot; &quot;movie269&quot;
+
+$`12`
+[1] &quot;movie313&quot; &quot;movie100&quot; &quot;movie288&quot; &quot;movie268&quot; &quot;movie316&quot;
+
+$`13`
+[1] &quot;movie134&quot; &quot;movie513&quot; &quot;movie169&quot; &quot;movie660&quot; &quot;movie408&quot;
+
+$`14`
+[1] &quot;movie300&quot; &quot;movie258&quot; &quot;movie272&quot; &quot;movie887&quot; &quot;movie286&quot;
+
+$`15`
+[1] &quot;movie183&quot; &quot;movie100&quot; &quot;movie172&quot; &quot;movie98&quot;  &quot;movie197&quot;
+</code></pre><p>修改一下参数，给用户推荐电影。预测2为给用户10~15 推荐5部电影</p>
+<h3 id="四、协同过滤"><a href="#四、协同过滤" class="headerlink" title="四、协同过滤"></a>四、协同过滤</h3><ol>
+<li><p>什么是协同过滤</p>
+<p> 协同过滤是利用集体智慧的一个典型方法。要理解什么是协同过滤 (Collaborative Filtering, 简称 CF)，首先想一个简单的问题，如果你现在想看个电影，但你不知道具体看哪部，你会怎么做？大部分的人会问问周围的朋友，看看最近有什么好看的电影推荐，而我们一般更倾向于从口味比较类似的朋友那里得到推荐。这就是协同过滤的核心思想。</p>
+<p> 换句话说，就是借鉴和你相关人群的观点来进行推荐，很好理解。</p>
+</li>
+<li><p>协同过滤的实现</p>
+<p> 收集数据——找到相似用户和物品——进行推荐</p>
+</li>
+</ol>
+<ul>
+<li><p>收集数据</p>
+<p>  这里的数据指的都是用户的历史行为数据，比如用户的购买历史，关注，收藏行为，或者发表了某些评论，给某个物品打了多少分等等，这些都可以用来作为数据供推荐算法使用，服务于推荐算法。需要特别指出的在于，不同的数据准确性不同，粒度也不同，在使用时需要考虑到噪音所带来的影响。</p>
+</li>
+<li><p>找到相似用户和物品<br>  这一步也很简单，其实就是计算用户间以及物品间的相似度。以下是几种计算相似度的方法：</p>
+<blockquote>
+<p>欧式距离<br>皮尔逊相关系数<br>Cosine 相似度<br>Tanimoto 系数</p>
+</blockquote>
+</li>
+<li><p>进行推荐</p>
+<p>  在知道了如何计算相似度后，就可以进行推荐了</p>
+<p>  在协同过滤中，有两种主流方法：基于用户的协同过滤，和基于物品的协同过滤。</p>
+<ul>
+<li><p>基于用户的 CF 的基本思想相当简单，基于用户对物品的偏好找到相邻邻居用户，然后将邻居用户喜欢的推荐给当前用户。计算上，就是将一个用户对所有物品的偏好作为一个向量来计算用户之间的相似度，找到 K 邻居后，根据邻居的相似度权重以及他们对物品的偏好，预测当前用户没有偏好的未涉及物品，计算得到一个排序的物品列表作为推荐。</p>
+</li>
+<li><p>基于物品的 CF 的原理和基于用户的 CF 类似，只是在计算邻居时采用物品本身，而不是从用户的角度，即基于用户对物品的偏好找到相似的物品，然后根据用户的历史偏好，推荐相似的物品给他。从计算的角度看，就是将所有用户对某个物品的偏好作为一个向量来计算物品之间的相似度，得到物品的相似物品后，根据用户历史的偏好预测当前用户还没有表示偏好的物品，计算得到一个排序的物品列表作为推荐。</p>
+</li>
+</ul>
+</li>
+</ul>
+<ol start="3">
+<li><p>总结</p>
+<blockquote>
+<p>以上两个方法都能很好的给出推荐，并可以达到不错的效果。但是他们之间还是有不同之处的，而且适用性也有区别。下面进行一下对比</p>
+</blockquote>
+<ul>
+<li><p>计算复杂度 </p>
+<p>  Item CF 和 User CF 是基于协同过滤推荐的两个最基本的算法，User CF 是很早以前就提出来了，Item CF 是从 Amazon 的论文和专利发表之后（2001 年左右）开始流行，大家都觉得 Item CF 从性能和复杂度上比 User CF 更优，其中的一个主要原因就是对于一个在线网站，用户的数量往往大大超过物品的数量，同时物品的数据相对稳定，因此计算物品的相似度不但计算量较小，同时也不必频繁更新。但我们往往忽略了这种情况只适应于提供商品的电子商务网站，对于新闻，博客或者微内容的推荐系统，情况往往是相反的，物品的数量是海量的，同时也是更新频繁的，所以单从复杂度的角度，这两个算法在不同的系统中各有优势，推荐引擎的设计者需要根据自己应用的特点选择更加合适的算法。</p>
+</li>
+<li><p>适用场景 </p>
+<p>  在非社交网络的网站中，内容内在的联系是很重要的推荐原则，它比基于相似用户的推荐原则更加有效。比如在购书网站上，当你看一本书的时候，推荐引擎会给你推荐相关的书籍，这个推荐的重要性远远超过了网站首页对该用户的综合推荐。可以看到，在这种情况下，Item CF 的推荐成为了引导用户浏览的重要手段。同时 Item CF 便于为推荐做出解释，在一个非社交网络的网站中，给某个用户推荐一本书，同时给出的解释是某某和你有相似兴趣的人也看了这本书，这很难让用户信服，因为用户可能根本不认识那个人；但如果解释说是因为这本书和你以前看的某本书相似，用户可能就觉得合理而采纳了此推荐。</p>
+<p>  相反的，在现今很流行的社交网络站点中，User CF 是一个更不错的选择，User CF 加上社会网络信息，可以增加用户对推荐解释的信服程度。</p>
+</li>
+</ul>
+</li>
+</ol>
+<h3 id="五、引伸"><a href="#五、引伸" class="headerlink" title="五、引伸"></a>五、引伸</h3><blockquote>
+<p>试着将基于用户协同过滤算法（UBCF），换成基于项目协同过滤（IBCF）,建模用时更长</p>
+</blockquote>
+<h5 id="建立模型-1"><a href="#建立模型-1" class="headerlink" title="建立模型"></a>建立模型</h5><pre><code>mydata.model &lt;- Recommender( mydata[1:943], method = &quot;IBCF&quot;)
+</code></pre><h6 id="预测1-1"><a href="#预测1-1" class="headerlink" title="预测1"></a>预测1</h6><pre><code>mydata.predict &lt;- predict(mydata.model,mydata[100:110], type=&quot;ratings&quot;)    
+as(mydata.predict,&quot;matrix&quot;)[1:4,1000:1005]
+</code></pre><hr>
+<pre><code>    movie1000 movie1001 movie1002 movie1003 movie1004 movie1005
+100        NA         2         3  4.000000        NA        NA
+101         2        NA        NA  2.500000         4        NA
+102         2        NA         3  2.666667         3         3
+103        NA        NA        NA  2.000000        NA        NA
+</code></pre><ul>
+<li>用户100~103 对电影 1000~1005 预测评分。</li>
+</ul>
+<hr>
+<h6 id="预测2-1"><a href="#预测2-1" class="headerlink" title="预测2"></a>预测2</h6><pre><code>mydata.predict1&lt;-predict(mydata.model,mydata[10:15],n=5)
+as(mydata.predict1,&quot;list&quot;)   
+</code></pre><hr>
+<pre><code>    $`10`
+[1] &quot;movie75&quot;  &quot;movie327&quot; &quot;movie339&quot; &quot;movie360&quot; &quot;movie379&quot;
+
+$`11`
+[1] &quot;movie18&quot;  &quot;movie68&quot;  &quot;movie113&quot; &quot;movie292&quot; &quot;movie316&quot;
+
+$`12`
+[1] &quot;movie37&quot;  &quot;movie360&quot; &quot;movie537&quot; &quot;movie723&quot; &quot;movie766&quot;
+
+$`13`
+[1] &quot;movie16&quot;  &quot;movie30&quot;  &quot;movie46&quot;  &quot;movie104&quot; &quot;movie112&quot;
+
+$`14`
+[1] &quot;movie37&quot;  &quot;movie41&quot;  &quot;movie74&quot;  &quot;movie115&quot; &quot;movie256&quot;
+
+$`15`
+[1] &quot;movie43&quot;  &quot;movie51&quot;  &quot;movie52&quot;  &quot;movie107&quot; &quot;movie114&quot;
+</code></pre><p>修改一下参数，给用户推荐电影。预测2为给用户10~15 推荐5部电影</p>
+<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<li><p><a href="https://www.ibm.com/developerworks/cn/web/1103_zhaoct_recommstudy2/index.html" target="_blank" rel="noopener">深入推荐引擎相关算法 - 协同过滤</a></p>
+</li>
+<li><p><a href="https://www.cnblogs.com/luban/p/8950350.html" target="_blank" rel="noopener">推荐系统：基于用户和模型的协同过滤电影推荐</a></p>
+</li>
+</ul>
+
+            </div>
+            <hr/>
+
+            
+            <style>
+    #reward {
+        margin: 40px 0;
+        text-align: center;
+    }
+
+    #reward .reward-link {
+        font-size: 1.88rem;
+    }
+
+    #reward .btn-floating:hover {
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 5px 15px rgba(0, 0, 0, 0.2);
+    }
+
+    #rewardModal {
+        width: 320px;
+        height: 350px;
+    }
+
+    #rewardModal .reward-title {
+        margin: 15px auto;
+        padding-bottom: 5px;
+    }
+
+    #rewardModal .modal-content {
+        padding: 10px;
+    }
+
+    #rewardModal .close {
+        position: absolute;
+        right: 15px;
+        top: 15px;
+        color: rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 20px;
+        cursor: pointer;
+    }
+
+    #rewardModal .close:hover {
+        color: #ef5350;
+        transform: scale(1.3);
+        -moz-transform:scale(1.3);
+        -webkit-transform:scale(1.3);
+        -o-transform:scale(1.3);
+    }
+
+    #rewardModal .reward-tabs {
+        margin: 0 auto;
+        width: 210px;
+    }
+
+    .reward-tabs .tabs {
+        height: 38px;
+        margin: 10px auto;
+        padding-left: 0;
+    }
+
+    .reward-content ul {
+        padding-left: 0 !important;
+    }
+
+    .reward-tabs .tabs .tab {
+        height: 38px;
+        line-height: 38px;
+    }
+
+    .reward-tabs .tab a {
+        color: #fff;
+        background-color: #ccc;
+    }
+
+    .reward-tabs .tab a:hover {
+        background-color: #ccc;
+        color: #fff;
+    }
+
+    .reward-tabs .wechat-tab .active {
+        color: #fff !important;
+        background-color: #22AB38 !important;
+    }
+
+    .reward-tabs .alipay-tab .active {
+        color: #fff !important;
+        background-color: #019FE8 !important;
+    }
+
+    .reward-tabs .reward-img {
+        width: 210px;
+        height: 210px;
+    }
+</style>
+
+<div id="reward">
+    <a href="#rewardModal" class="reward-link modal-trigger btn-floating btn-large waves-effect waves-light red">赏</a>
+
+    <!-- Modal Structure -->
+    <div id="rewardModal" class="modal">
+        <div class="modal-content">
+            <a class="close modal-close"><i class="fa fa-close"></i></a>
+            <h4 class="reward-title">您的赏识是我前进的动力</h4>
+            <div class="reward-content">
+                <div class="reward-tabs">
+                    <ul class="tabs row">
+                        <li class="tab col s6 alipay-tab waves-effect waves-light"><a href="#alipay">支付宝</a></li>
+                        <li class="tab col s6 wechat-tab waves-effect waves-light"><a href="#wechat">微 信</a></li>
+                    </ul>
+                    <div id="alipay">
+                        <img src="/medias/reward/alipay.jpg" class="reward-img" alt="支付宝打赏二维码">
+                    </div>
+                    <div id="wechat">
+                        <img src="/medias/reward/wechat.png" class="reward-img" alt="微信打赏二维码">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+        $('.tabs').tabs();
+    });
+</script>
+            
+
+            <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+
+<div id="article-share">
+    
+    <div class="social-share" data-disabled="qzone" data-wechat-qrcode-helper="<p>微信里点“发现”->“扫一扫”二维码便可查看分享。</p>"></div>
+    
+</div>
+
+<script src="/libs/share/js/social-share.min.js"></script>
+
+            <div class="reprint">
+                <p>
+                    <span class="reprint-tip">
+                        <i class="fa fa-exclamation-circle"></i>&nbsp;&nbsp;转载请注明:
+                    </span>
+                    <a href="http://CityNorth.github.io" class="b-link-green">城北</a>
+                    <i class="fa fa-angle-right fa-lg fa-fw text-color"></i>
+                    <a href="/2019/05/19/shu-ju-fen-xi/r-yu-yan-dian-ying-ping-fen-yu-ce-mo-xing/" class="b-link-green">R语言-电影评分预测模型</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fa fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2019/05/22/shu-ju-fen-xi/guan-lian-gui-ze/">
+                    <div class="card-image">
+                        
+                        <img src="https://raw.githubusercontent.com/CityNorth/material/master/image/guanlianguize.jpg" class="responsive-img" alt="数据分析-关联规则（购物篮分析）">
+                        
+                        <span class="card-title">数据分析-关联规则（购物篮分析）</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">关联规则算法基础概念1. 关联规则的一般形式项集A、B同时发生的概率称为关联规则的支持度（也称相对支持度）：Support（A→B）= P(A∩B)项集A发生，则项集B发生的概率为关联规则的置信度：Confidence（A→B）= P(B|</div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-22
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/数据分析/" class="post-category" target="_blank">
+                                    数据分析
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/R/" target="_blank">
+                        <span class="chip bg-color">R</span>
+                    </a>
+                    
+                    <a href="/tags/数据分析/" target="_blank">
+                        <span class="chip bg-color">数据分析</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6 overflow-policy" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fa fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2019/05/18/r/r-yu-yan-zi-fu-chuan-chu-li/">
+                    <div class="card-image">
+                        
+                        <img src="https://raw.githubusercontent.com/CityNorth/material/master/image/zifuchuanchuli.png" class="responsive-img" alt="R语言字符串处理">
+                        
+                        <span class="card-title">R语言字符串处理</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">R语言中的字符串处理函数内容概览  尽管R是一门以数值向量和矩阵为核心的统计语言，但字符串有时候也会在数据分析中占到相当大的份量。
+
+获取字符串长度：nchar()能够获取字符串的长度，它也支持字符串向量操作。注意它和length()的结果</div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="fa fa-clock-o fa-fw icon-date"></i>2019-05-18
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fa fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/R/" class="post-category" target="_blank">
+                                    R
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/R/" target="_blank">
+                        <span class="chip bg-color">R</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+</div>
+
+
+<script>
+    $('#articleContent').on('copy', function (e) {
+        // IE8 or earlier browser is 'undefined'
+        if (typeof window.getSelection === 'undefined') return;
+
+        var selection = window.getSelection();
+        // if the selection is short let's not annoy our users.
+        if (('' + selection).length < Number.parseInt('120')) {
+            return;
+        }
+
+        // create a div outside of the visible area and fill it with the selected text.
+        var bodyElement = document.getElementsByTagName('body')[0];
+        var newdiv = document.createElement('div');
+        newdiv.style.position = 'absolute';
+        newdiv.style.left = '-99999px';
+        bodyElement.appendChild(newdiv);
+        newdiv.appendChild(selection.getRangeAt(0).cloneContents());
+
+        // we need a <pre> tag workaround.
+        // otherwise the text inside "pre" loses all the line breaks!
+        if (selection.getRangeAt(0).commonAncestorContainer.nodeName === 'PRE') {
+            newdiv.innerHTML = "<pre>" + newdiv.innerHTML + "</pre>";
+        }
+
+        var url = document.location.href;
+        newdiv.innerHTML += '<br />'
+            + '来源: 城北<br />'
+            + '作者: CityNorth<br />'
+            + '链接: <a href="' + url + '">' + url + '</a><br />'
+            + '本文章著作权归作者所有，任何形式的转载都请注明出处。';
+
+        selection.selectAllChildren(newdiv);
+        window.setTimeout(function () {bodyElement.removeChild(newdiv);}, 200);
+    });
+</script>
+
+
+    </div>
+    <div id="toc-aside" class="expanded col l3 hide-on-med-and-down">
+        <div class="toc-widget">
+            <div class="toc-title"><i class="fa fa-list-alt"></i>&nbsp;&nbsp;目录</div>
+            <div id="toc-content"></div>
+        </div>
+    </div>
+</div>
+
+<!-- TOC 悬浮按钮. -->
+
+<div id="floating-toc-btn" class="hide-on-med-and-down">
+    <a class="btn-floating btn-large bg-color">
+        <i class="fa fa-list"></i>
+    </a>
+</div>
+
+
+<script src="/libs/tocbot/tocbot.min.js"></script>
+<script>
+    $(function () {
+        tocbot.init({
+            tocSelector: '#toc-content',
+            contentSelector: '#articleContent',
+            headingsOffset: -($(window).height() * 0.4 - 45),
+            // headingsOffset: -205,
+            headingSelector: 'h2, h3, h4'
+        });
+
+        // modify the toc link href to support Chinese.
+        let i = 0;
+        let tocHeading = 'toc-heading-';
+        $('#toc-content a').each(function () {
+            $(this).attr('href', '#' + tocHeading + (++i));
+        });
+
+        // modify the heading title id to support Chinese.
+        i = 0;
+        $('#articleContent').children('h2, h3, h4').each(function () {
+            $(this).attr('id', tocHeading + (++i));
+        });
+
+        // Set scroll toc fixed.
+        let tocHeight = parseInt($(window).height() * 0.4 - 64);
+        let $tocWidget = $('.toc-widget');
+        $(window).scroll(function () {
+            let scroll = $(window).scrollTop();
+            /* add post toc fixed. */
+            if (scroll > tocHeight) {
+                $tocWidget.addClass('toc-fixed');
+            } else {
+                $tocWidget.removeClass('toc-fixed');
+            }
+        });
+
+        
+        /* 修复文章卡片 div 的宽度. */
+        let fixPostCardWidth = function (srcId, targetId) {
+            let srcDiv = $('#' + srcId);
+            if (srcDiv.length === 0) {
+                return;
+            }
+
+            let w = srcDiv.width();
+            if (w >= 450) {
+                w = w + 21;
+            } else if (w >= 350 && w < 450) {
+                w = w + 18;
+            } else if (w >= 300 && w < 350) {
+                w = w + 16;
+            } else {
+                w = w + 14;
+            }
+            $('#' + targetId).width(w);
+        };
+
+        // 切换TOC目录展开收缩的相关操作.
+        const expandedClass = 'expanded';
+        let $tocAside = $('#toc-aside');
+        let $mainContent = $('#main-content');
+        $('#floating-toc-btn .btn-floating').click(function () {
+            if ($tocAside.hasClass(expandedClass)) {
+                $tocAside.removeClass(expandedClass).slideUp(500);
+                $mainContent.removeClass('l9');
+            } else {
+                $tocAside.addClass(expandedClass).slideDown(500);
+                $mainContent.addClass('l9');
+            }
+            fixPostCardWidth('artDetail', 'prenext-posts');
+        });
+        
+    });
+</script>
+    
+
+</main>
+
+
+<footer class="page-footer bg-color">
+    <div class="container row center-align">
+        <div class="col s12 m8 l8 copy-right">
+            &copy; CityNorth&nbsp;&nbsp; 2019 - 2020
+            
+            
+                &nbsp;<i class="fa fa-area-chart"></i>&nbsp;站点总字数:&nbsp;
+                <span class="white-color">48.6k</span>
+            
+
+            
+			
+                <br>
+                
+                <span id="busuanzi_container_site_pv">
+                    <i class="fa fa-heart-o"></i>
+                    本站总访问量 <span id="busuanzi_value_site_pv" class="white-color"></span>
+                </span>
+                
+                
+                <span id="busuanzi_container_site_uv">
+                    <i class="fa fa-users"></i>
+                    次,&nbsp;访客数 <span id="busuanzi_value_site_uv" class="white-color"></span> 人.
+                </span>
+                
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+    <a href="https://github.com/CityNorth" class="tooltipped" target="_blank" data-tooltip="访问我的GitHub" data-position="top" data-delay="50">
+        <i class="fa fa-github"></i>
+    </a>
+
+
+
+    <a href="mailto:1509925520@qq.com" class="tooltipped" target="_blank" data-tooltip="邮件联系我" data-position="top" data-delay="50">
+        <i class="fa fa-envelope-open"></i>
+    </a>
+
+
+
+    <a href="tencent://AddContact/?fromId=50&fromSubId=1&subcmd=all&uin=1509925520" class="tooltipped" data-tooltip="QQ联系我: 1509925520" data-position="top" data-delay="50">
+        <i class="fa fa-qq"></i>
+    </a>
+
+
+
+    <a href="/atom.xml" class="tooltipped" target="_blank" data-tooltip="RSS 订阅" data-position="top" data-delay="50">
+        <i class="fa fa-rss"></i>
+    </a>
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+<!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fa fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+$(function () {
+    searchFunc("/" + "search.xml", 'searchInput', 'searchResult');
+});
+</script>
+<!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fa fa-angle-up"></i>
+    </a>
+</div>
+
+
+<script src="/libs/materialize/materialize.min.js"></script>
+<script src="/libs/masonry/masonry.pkgd.min.js"></script>
+<script src="/libs/aos/aos.js"></script>
+<script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+<script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+<script src="/js/matery.js"></script>
+
+<!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+
+    <script src="/libs/others/clicklove.js"></script>
+
+
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+
+
+ 
+</body>
+</html>
