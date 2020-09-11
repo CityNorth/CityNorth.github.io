@@ -561,31 +561,6 @@
     
     
     <entry>
-      <title>EXCEL-日期函数</title>
-      <link href="/2019/04/30/excel/excel-ri-qi-han-shu/"/>
-      <url>/2019/04/30/excel/excel-ri-qi-han-shu/</url>
-      
-        <content type="html"><![CDATA[<h2 id="EXCEL-日期函数"><a href="#EXCEL-日期函数" class="headerlink" title="EXCEL-日期函数"></a>EXCEL-日期函数</h2><h1 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h1><h3 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h3><blockquote><p>用途：返回当前日期和时间所对应的序列号。</p></blockquote><ul><li>语法：Now()</li></ul><h3 id="Today"><a href="#Today" class="headerlink" title="Today"></a>Today</h3><blockquote><p>用途：返回系统当前日期的序列号。</p></blockquote><ul><li>语法：Today()</li></ul><h3 id="Weekday"><a href="#Weekday" class="headerlink" title="Weekday"></a>Weekday</h3><blockquote><p>用途：返回某日期的星期数。在默认情况下，它的值为1(星期天)到7(星期六)之间的一个整数。</p></blockquote><ul><li><p>语法：Weekday(Serial_Number，Return_Type)</p></li><li><p>参数：Serial_Number是要返回日期数的日期，它有多种输入方式：带引号的文本串(如”2001/02/26”)、序列号(如35825表示1998年1月30日)或其他公式或函数的结果(如dateValue(“2000/1/30”))。Return_Type为确定返回值类型的数字，数字1或省略则1至7代表星期天到数星期六，数字2则1至7代表星期一到星期天，数字3则0至6代表星期一到星期天。 </p></li></ul><h3 id="Weeknum"><a href="#Weeknum" class="headerlink" title="Weeknum"></a>Weeknum</h3><blockquote><p>用途：返回一个数字，该数字代表一年中的第几周。</p></blockquote><ul><li><p>语法：Weeknum(Serial_Num，Return_Type)</p></li><li><p>参数：Serial_Num代表一周中的日期。应使用date 函数输入日期，或者将日期作为其他公式或函数的结果输入。Return_Type为一数字，确定星期计算从哪一天开始。默认值为 1。</p></li></ul><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><blockquote><p>Date  Date(year, month,day)  </p></blockquote><blockquote><p>Time time(hour, minute, second)   </p></blockquote><h3 id="Datedif"><a href="#Datedif" class="headerlink" title="Datedif"></a>Datedif</h3><blockquote><p>用途：计算两个日期的间隔。</p></blockquote><ul><li><p>语法：Datedif DATEDIF(start_date,end_date,unit)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DATEDIF(开始日期，结束日期，Type (yd,md,ym, y,m,d))</p></li><li><p>参数：Start_date 为一个日期，它代表时间段内的第一个日期或起始日期。(起始日期必须在1900年之后)。End_date 为一个日期，它代表时间段内的最后一个日期或结束日期。Unit 为所需信息的返回类型。</p></li><li><p><strong>注：</strong> </p><blockquote><p>“Y” 时间段中的整年数。<br>“M” 时间段中的整月数。<br>“D” 时间段中的天数。<br>“MD” 起始日期与结束日期的同月间隔天数。 忽略日期中的月份和年份。<br>“YD” 起始日期与结束日期的同年间隔天数。忽略日期中的年份。<br>“YM” 起始日期与结束日期的同年间隔月数。忽略日期中年份  </p></blockquote></li></ul><h3 id="截取时间中的数值"><a href="#截取时间中的数值" class="headerlink" title="截取时间中的数值"></a>截取时间中的数值</h3><blockquote><p>Year<br>Month<br>Day<br>Hour<br>Minute<br>second</p></blockquote>]]></content>
-      
-      
-      <categories>
-          
-          <category> Excel </category>
-          
-      </categories>
-      
-      
-        <tags>
-            
-            <tag> Excel </tag>
-            
-        </tags>
-      
-    </entry>
-    
-    
-    
-    <entry>
       <title>EXCEL-字符串</title>
       <link href="/2019/04/30/excel/excel-zi-fu-chuan/"/>
       <url>/2019/04/30/excel/excel-zi-fu-chuan/</url>
@@ -611,11 +586,11 @@
     
     
     <entry>
-      <title>EXCEL-查找引用</title>
-      <link href="/2019/04/30/excel/excel-cha-zhao-yin-yong/"/>
-      <url>/2019/04/30/excel/excel-cha-zhao-yin-yong/</url>
+      <title>EXCEL-日期函数</title>
+      <link href="/2019/04/30/excel/excel-ri-qi-han-shu/"/>
+      <url>/2019/04/30/excel/excel-ri-qi-han-shu/</url>
       
-        <content type="html"><![CDATA[<h2 id="EXCEL-查找引用"><a href="#EXCEL-查找引用" class="headerlink" title="EXCEL-查找引用"></a>EXCEL-查找引用</h2><h1 id="查找引用"><a href="#查找引用" class="headerlink" title="查找引用"></a>查找引用</h1><h3 id="VLOOKUP"><a href="#VLOOKUP" class="headerlink" title="VLOOKUP"></a>VLOOKUP</h3><blockquote><p>用途：在表格或数值数组的首列查找指定的数值，并由此返回表格或数组当前行中指定列处的数值。</p></blockquote><ul><li><p>语法：VLOOKUP(lookup_value，table_array，col_index_num，range_lookup)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VLOOKUP(找谁，在哪里找，第几列，怎么找) </p></li><li><p>参数：Lookup_value为需要在数据表第一列中查找的数值，Table_array 为需要在其中查找数据区域。Col_index_num 为table_array 中待返回的匹配值的列序号。Range_lookup为一逻辑值，指明函数VLOOKUP 返回时是精确匹配还是近似匹配。如果Range_lookup为 1或省略，则返回近似匹配值（模糊匹配），<br>如果找不到精确匹配值，则返回小于lookup_value 的最大数值；<br>如果range_value 为0， 函数VLOOKUP 将返回精确匹配值。</p></li><li><p><strong>注意：</strong> 1. 查找值一定要在第一列。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2. 模糊匹配时第一列一定要升序排列。</p></li></ul><h3 id="Match"><a href="#Match" class="headerlink" title="Match"></a>Match</h3><blockquote><p>用途：返回在指定方式下与指定数值匹配的数组中元素的相应位置。如果需要找出匹配元素的位置而不是匹配</p></blockquote><ul><li><p>元素本身，则应该使用match函数。</p></li><li><p>语法：Match(Lookup_Value，Lookup_Array，Match_Type)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Match(找谁，在哪里找，怎么找)</p></li><li><p>参数：Lookup_Value为需要在数据表中查找的数值，它可以是数值(或数字、文本或逻辑值)、对数字、文本或逻辑值的单元格引用。Lookup_Array是可能包含所要查找的数值的连续单元格区域，Lookup_Array可以是数组或数组引用；Match_Type为数字-1、0或1，它说明Excel如何在Lookup_Array中查找Lookup_Value。如果Match_Type为1，函数Match查找小于或等于Lookup_Value的最大数值。如果Match_Type为0，函数Match查找等于Lookup_Value的第一个数值。如果Match_Type为-1，函数Match查找大于或等于Lookup_Value的最小数值。</p></li></ul><h3 id="INDEX（）"><a href="#INDEX（）" class="headerlink" title="INDEX（）"></a>INDEX（）</h3><blockquote><p>用途：返回列表或数组中的元素值，此元素由行序号和列序号的索引值进行确定。　　</p></blockquote><ul><li><p>使用格式：INDEX(array,row_num,column_num)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;INDEX(范围，范围里的行号, 范围里的列号)</p></li><li><p>参数说明：Array代表单元格区域或数组常量；Row_num表示指定的行序号（如果省略row_num，则必须有  column_num）；Column_num表示指定的列序号（如果省略column_num，则必须有 row_num）</p></li></ul><h3 id="Offset"><a href="#Offset" class="headerlink" title="Offset"></a>Offset</h3><blockquote><p>用途：选取区域数据</p></blockquote><ul><li>使用格式： Offset(相对位置， 下移几行，右移几列， 高，宽)    </li></ul><h3 id="Indirect"><a href="#Indirect" class="headerlink" title="Indirect"></a>Indirect</h3><blockquote><p>为对单元格的引用， </p></blockquote><ul><li>使用格式：INDIRECT(ref_text,[a1])<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Indirect(字符串)</li></ul><h3 id="Column"><a href="#Column" class="headerlink" title="Column"></a>Column</h3><blockquote><p>返回单元格的列号</p></blockquote><ul><li>Column([单元格])</li></ul><h3 id="Row"><a href="#Row" class="headerlink" title="Row"></a>Row</h3><blockquote><p>返回单元格的行号</p></blockquote><ul><li>Row （[单元格]）</li></ul>]]></content>
+        <content type="html"><![CDATA[<h2 id="EXCEL-日期函数"><a href="#EXCEL-日期函数" class="headerlink" title="EXCEL-日期函数"></a>EXCEL-日期函数</h2><h1 id="日期函数"><a href="#日期函数" class="headerlink" title="日期函数"></a>日期函数</h1><h3 id="Now"><a href="#Now" class="headerlink" title="Now"></a>Now</h3><blockquote><p>用途：返回当前日期和时间所对应的序列号。</p></blockquote><ul><li>语法：Now()</li></ul><h3 id="Today"><a href="#Today" class="headerlink" title="Today"></a>Today</h3><blockquote><p>用途：返回系统当前日期的序列号。</p></blockquote><ul><li>语法：Today()</li></ul><h3 id="Weekday"><a href="#Weekday" class="headerlink" title="Weekday"></a>Weekday</h3><blockquote><p>用途：返回某日期的星期数。在默认情况下，它的值为1(星期天)到7(星期六)之间的一个整数。</p></blockquote><ul><li><p>语法：Weekday(Serial_Number，Return_Type)</p></li><li><p>参数：Serial_Number是要返回日期数的日期，它有多种输入方式：带引号的文本串(如”2001/02/26”)、序列号(如35825表示1998年1月30日)或其他公式或函数的结果(如dateValue(“2000/1/30”))。Return_Type为确定返回值类型的数字，数字1或省略则1至7代表星期天到数星期六，数字2则1至7代表星期一到星期天，数字3则0至6代表星期一到星期天。 </p></li></ul><h3 id="Weeknum"><a href="#Weeknum" class="headerlink" title="Weeknum"></a>Weeknum</h3><blockquote><p>用途：返回一个数字，该数字代表一年中的第几周。</p></blockquote><ul><li><p>语法：Weeknum(Serial_Num，Return_Type)</p></li><li><p>参数：Serial_Num代表一周中的日期。应使用date 函数输入日期，或者将日期作为其他公式或函数的结果输入。Return_Type为一数字，确定星期计算从哪一天开始。默认值为 1。</p></li></ul><h3 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h3><blockquote><p>Date  Date(year, month,day)  </p></blockquote><blockquote><p>Time time(hour, minute, second)   </p></blockquote><h3 id="Datedif"><a href="#Datedif" class="headerlink" title="Datedif"></a>Datedif</h3><blockquote><p>用途：计算两个日期的间隔。</p></blockquote><ul><li><p>语法：Datedif DATEDIF(start_date,end_date,unit)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;DATEDIF(开始日期，结束日期，Type (yd,md,ym, y,m,d))</p></li><li><p>参数：Start_date 为一个日期，它代表时间段内的第一个日期或起始日期。(起始日期必须在1900年之后)。End_date 为一个日期，它代表时间段内的最后一个日期或结束日期。Unit 为所需信息的返回类型。</p></li><li><p><strong>注：</strong> </p><blockquote><p>“Y” 时间段中的整年数。<br>“M” 时间段中的整月数。<br>“D” 时间段中的天数。<br>“MD” 起始日期与结束日期的同月间隔天数。 忽略日期中的月份和年份。<br>“YD” 起始日期与结束日期的同年间隔天数。忽略日期中的年份。<br>“YM” 起始日期与结束日期的同年间隔月数。忽略日期中年份  </p></blockquote></li></ul><h3 id="截取时间中的数值"><a href="#截取时间中的数值" class="headerlink" title="截取时间中的数值"></a>截取时间中的数值</h3><blockquote><p>Year<br>Month<br>Day<br>Hour<br>Minute<br>second</p></blockquote>]]></content>
       
       
       <categories>
@@ -641,6 +616,31 @@
       <url>/2019/04/30/excel/excel-luo-ji-han-shu/</url>
       
         <content type="html"><![CDATA[<h2 id="EXCEL-逻辑函数"><a href="#EXCEL-逻辑函数" class="headerlink" title="EXCEL-逻辑函数"></a>EXCEL-逻辑函数</h2><h1 id="逻辑函数："><a href="#逻辑函数：" class="headerlink" title="逻辑函数："></a>逻辑函数：</h1><h3 id="If"><a href="#If" class="headerlink" title="If"></a>If</h3><blockquote><p>用途：执行逻辑判断，它可以根据逻辑表达式的真假，返回不同的结果，从而执行数值或公式的条件检测任务。  </p></blockquote><ul><li><p>语法：If(Logical_Test，Value_If_True，Value_If_False)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;If(条件，满足条件时执行，不满足条件时执行)     </p></li><li><p>参数：Logical_Test计算结果为True或False的任何数值或表达式；Value_If_True是Logical_Test为True时函数的返回值，如果Logical_Test为True并且省略了Value_If_True，则返回True。而且Value_If_True可以是一个表达式；Value_If_False是Logical_Test为False时函数的返回值。如果Logical_Test为False并且省略Value_If_False，则返回False。Value_If_False也可以是一个表达式。</p></li></ul><h3 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h3><blockquote><p>用途：返回逻辑值：如果所有参数值均为逻辑“真（TRUE）”，则返回逻辑“真（TRUE）”，反之返回逻辑“假（FALSE）”。  </p></blockquote><ul><li><p>语法：AND(logical1,logical2,  …) 　<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;AND(条件1，条件2,….)</p></li><li><p>参数：Logical1,Logical2,Logical3……：表示待测试的条件值或表达式，最多至30个。</p></li></ul><h3 id="OR"><a href="#OR" class="headerlink" title="OR　"></a>OR　</h3><blockquote><p>用途：返回逻辑值，仅当所有参数值均为逻辑“假（FALSE）”时返回函数结果逻辑“假（FALSE）”，否则都返回逻辑“真（TRUE）”。　　</p></blockquote><ul><li><p>语法：OR(logical1,logical2,  …)　<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;OR(条件1，条件2,….)　</p></li><li><p>参数：Logical1,Logical2,Logical3……：表示待测试的条件值或表达式，最多至0个.</p></li></ul><h3 id="Not"><a href="#Not" class="headerlink" title="Not"></a>Not</h3><blockquote><p>用途：以函数的逻辑值求反</p></blockquote><ul><li>语法：Not(logical)　<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Not(条件)　</li></ul><h3 id="Iseven"><a href="#Iseven" class="headerlink" title="Iseven"></a>Iseven</h3><blockquote><p>用途：测试参数的奇偶性，如果参数为偶数返回True，否则返回False。</p></blockquote><ul><li><p>语法：Iseven(Number)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Iseven(数值)  </p></li><li><p>Number待测试的数值。如果参数值不是整数，则自动截去小数部分取整。<br><strong>注意：</strong> 该函数必须加载“分析工具库”方能使用。如果参数Number不是数值，Iseven函数返回错误值#Value!。</p></li></ul><h3 id="Isodd"><a href="#Isodd" class="headerlink" title="Isodd"></a>Isodd</h3><blockquote><p>用途：测试参数的奇偶性，如果参数为奇数返回True，否则返回False。 </p></blockquote><ul><li><p>语法：Isodd(Number)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Iseven(数值)   </p></li><li><p>参数：Number待测试的数值。如果参数不是整数，则自动截去小数部分取整。<br><strong>注意：</strong> 该函数必须加载“分析工具库”方能使用。</p></li></ul><h3 id="Iserror"><a href="#Iserror" class="headerlink" title="Iserror"></a>Iserror</h3><blockquote><p>用途：检查一个值是否为错误   </p></blockquote><ul><li><p>语法：iserror(value)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;iserror(运算结果)  </p></li><li><p>参数：value可以是一个表达式，如果结果有错则返回TRUE。</p></li></ul>]]></content>
+      
+      
+      <categories>
+          
+          <category> Excel </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Excel </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>EXCEL-查找引用</title>
+      <link href="/2019/04/30/excel/excel-cha-zhao-yin-yong/"/>
+      <url>/2019/04/30/excel/excel-cha-zhao-yin-yong/</url>
+      
+        <content type="html"><![CDATA[<h2 id="EXCEL-查找引用"><a href="#EXCEL-查找引用" class="headerlink" title="EXCEL-查找引用"></a>EXCEL-查找引用</h2><h1 id="查找引用"><a href="#查找引用" class="headerlink" title="查找引用"></a>查找引用</h1><h3 id="VLOOKUP"><a href="#VLOOKUP" class="headerlink" title="VLOOKUP"></a>VLOOKUP</h3><blockquote><p>用途：在表格或数值数组的首列查找指定的数值，并由此返回表格或数组当前行中指定列处的数值。</p></blockquote><ul><li><p>语法：VLOOKUP(lookup_value，table_array，col_index_num，range_lookup)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;VLOOKUP(找谁，在哪里找，第几列，怎么找) </p></li><li><p>参数：Lookup_value为需要在数据表第一列中查找的数值，Table_array 为需要在其中查找数据区域。Col_index_num 为table_array 中待返回的匹配值的列序号。Range_lookup为一逻辑值，指明函数VLOOKUP 返回时是精确匹配还是近似匹配。如果Range_lookup为 1或省略，则返回近似匹配值（模糊匹配），<br>如果找不到精确匹配值，则返回小于lookup_value 的最大数值；<br>如果range_value 为0， 函数VLOOKUP 将返回精确匹配值。</p></li><li><p><strong>注意：</strong> 1. 查找值一定要在第一列。<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp;&nbsp;2. 模糊匹配时第一列一定要升序排列。</p></li></ul><h3 id="Match"><a href="#Match" class="headerlink" title="Match"></a>Match</h3><blockquote><p>用途：返回在指定方式下与指定数值匹配的数组中元素的相应位置。如果需要找出匹配元素的位置而不是匹配</p></blockquote><ul><li><p>元素本身，则应该使用match函数。</p></li><li><p>语法：Match(Lookup_Value，Lookup_Array，Match_Type)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Match(找谁，在哪里找，怎么找)</p></li><li><p>参数：Lookup_Value为需要在数据表中查找的数值，它可以是数值(或数字、文本或逻辑值)、对数字、文本或逻辑值的单元格引用。Lookup_Array是可能包含所要查找的数值的连续单元格区域，Lookup_Array可以是数组或数组引用；Match_Type为数字-1、0或1，它说明Excel如何在Lookup_Array中查找Lookup_Value。如果Match_Type为1，函数Match查找小于或等于Lookup_Value的最大数值。如果Match_Type为0，函数Match查找等于Lookup_Value的第一个数值。如果Match_Type为-1，函数Match查找大于或等于Lookup_Value的最小数值。</p></li></ul><h3 id="INDEX（）"><a href="#INDEX（）" class="headerlink" title="INDEX（）"></a>INDEX（）</h3><blockquote><p>用途：返回列表或数组中的元素值，此元素由行序号和列序号的索引值进行确定。　　</p></blockquote><ul><li><p>使用格式：INDEX(array,row_num,column_num)<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;INDEX(范围，范围里的行号, 范围里的列号)</p></li><li><p>参数说明：Array代表单元格区域或数组常量；Row_num表示指定的行序号（如果省略row_num，则必须有  column_num）；Column_num表示指定的列序号（如果省略column_num，则必须有 row_num）</p></li></ul><h3 id="Offset"><a href="#Offset" class="headerlink" title="Offset"></a>Offset</h3><blockquote><p>用途：选取区域数据</p></blockquote><ul><li>使用格式： Offset(相对位置， 下移几行，右移几列， 高，宽)    </li></ul><h3 id="Indirect"><a href="#Indirect" class="headerlink" title="Indirect"></a>Indirect</h3><blockquote><p>为对单元格的引用， </p></blockquote><ul><li>使用格式：INDIRECT(ref_text,[a1])<br>&nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;Indirect(字符串)</li></ul><h3 id="Column"><a href="#Column" class="headerlink" title="Column"></a>Column</h3><blockquote><p>返回单元格的列号</p></blockquote><ul><li>Column([单元格])</li></ul><h3 id="Row"><a href="#Row" class="headerlink" title="Row"></a>Row</h3><blockquote><p>返回单元格的行号</p></blockquote><ul><li>Row （[单元格]）</li></ul>]]></content>
       
       
       <categories>
